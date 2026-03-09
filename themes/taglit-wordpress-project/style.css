@@ -1,0 +1,156 @@
+/*
+ Theme Name: Taglit Memorial 
+ Author: Avigail Levy
+ Description: A custom theme for Alumni and Staff blog environments.
+ Version: 1.0
+*/
+
+.site-header * {
+    box-sizing: border-box;
+}
+
+.site-header {
+    height: 76px; 
+    padding: 0 60px; 
+    background-color: #FFFFFF;
+    display: flex;
+    justify-content: space-between; 
+    align-items: center;
+    border-bottom: 1px solid #E5E5E5;
+    width: 100%;
+}
+
+.links {
+    height: 76px; 
+    display: flex;
+    align-items: center;
+}
+
+.main-menu-list {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    gap: 30px; 
+}
+
+.main-menu-list li a {
+    text-decoration: none;
+    color: #4A4A4A;
+    font-size: 13px;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.logo {
+    width: 160px; 
+    height: 76px; 
+    display: flex;
+    align-items: center;
+}
+
+.logo img {
+    max-height: 40px; 
+    width: auto;
+}
+
+.link {
+    width: 93px; 
+    display: flex;
+    justify-content: flex-end;
+}
+
+.login-btn {
+    text-decoration: none;
+    color: #000000;
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+.hero-section {
+    position: relative;
+    width: 100%;
+    height: 760px; 
+    background-color: #050D1A; 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.hero-texture-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('images/black-dark-bcg.jpg'); 
+    background-size: cover;
+    mix-blend-mode: multiply; 
+    z-index: 2;
+}
+
+.hero-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: var(--hero-bg);
+    background-size: cover;
+    background-position: left center;
+    opacity: 0.6; 
+    z-index: 1;
+}
+
+.hero-main-title {
+    font-family: 'Nexa Heavy';
+    font-size: 80px; 
+    font-weight: 900; 
+    line-height: 1.1;
+    color: #FFFFFF;
+    text-transform: uppercase;
+    margin-bottom: 24px;
+    letter-spacing: -0.02em;
+}
+
+.hero-container {
+    position: relative;
+    z-index: 10; 
+    width: 100%;
+    padding: 0 60px; 
+}
+
+.hero-description {
+    font-size: 18px; 
+    color: rgba(255, 255, 255, 0.8);
+    max-width: 600px;
+    margin: 0 auto;
+    line-height: 1.6;
+}
+
+.btn-support-now {
+    display: inline-block;
+    padding: 16px 36px; 
+    background-color: #0047BB; 
+    color: #FFFFFF;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: 700;
+    border-radius: 999px; 
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-top: 40px; 
+}
+
+.hero-socials {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    color: #FFFFFF;
+    font-size: 20px;
+}
+
