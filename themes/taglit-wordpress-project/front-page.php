@@ -1,42 +1,66 @@
 <?php get_header(); ?>
 
-<?php 
-$title      = get_field('hero_title');
-$subtitle   = get_field('hero_subtitle');
-$bg_image   = get_field('hero_background'); 
-$btn_text   = get_field('hero_btn_text');
-$btn_url    = get_field('hero_btn_url'); 
-?>
-<section class="hero-section" style="--hero-bg: url('<?php echo esc_url($bg_image); ?>');">
-    <div class="hero-texture-overlay"></div> 
+<?php get_template_part('template-parts/hero'); ?>
+<?php
+$terms = get_terms(array(
+    'taxonomy'   => 'alumni_category',
+    'hide_empty' => true,
+));
 
-    <div class="container hero-container">
-        <div class="hero-content">
-            
-            <!-- <div class="hero-top-logo mb-4">
-                 <img src="<?php echo get_template_directory_uri(); ?>/images/beyond-logo.png" alt="Beyond Logo">
-            </div> -->
+if (!empty($terms) && !is_wp_error($terms)) :
+    foreach ($terms as $term) :
 
-            <?php if($title): ?>
-                <h1 class="hero-main-title"><?php echo esc_html($title); ?></h1>
-            <?php endif; ?>
+        $hide_category = get_field('hide_category', $term);
+        if ($hide_category) {
+            continue;
+        }
+        ?>
+        
+        <section class="alumni-category-section" id="category-<?php echo esc_attr($term->slug); ?>">
+            <div class="container">
+                <h2 class="category-title">
+                    <?php
+                    $icon = get_field('category_icon_class', $term);
+                    if ($icon) :
+                    ?>
+                        <i class="<?php echo esc_attr($icon); ?>"></i>
+                    <?php endif; ?>
+                    <?php echo esc_html($term->name); ?>
+                </h2>
 
-            <?php if($subtitle): ?>
-                <p class="hero-description mx-auto"><?php echo esc_html($subtitle); ?></p>
-            <?php endif; ?>
+                <div class="alumni-grid">
+                    <?php
+                    $alumni_query = new WP_Query(array(
+                        'post_type'      => 'alumni',
+                        'posts_per_page' => -1,
+                        'post_status'    => 'publish',
+                        'tax_query'      => array(
+                            array(
+                                'taxonomy' => 'alumni_category',
+                                'field'    => 'term_id',
+                                'terms'    => $term->term_id,
+                            ),
+                        ),
+                    ));
 
-            <div class="hero-actions mt-5">
-                <?php if($btn_text): ?>
-                    <a href="<?php echo esc_url($btn_url); ?>" class="btn-support-now">
-                        <?php echo esc_html($btn_text); ?>
-                    </a>
-                <?php endif; ?>
+                    if ($alumni_query->have_posts()) :
+                        while ($alumni_query->have_posts()) :
+                            $alumni_query->the_post();
+                            get_template_part('template-parts/alumni/card');
+                        endwhile;
+                        wp_reset_postdata();
+                    else :
+                        echo '<p>No posts found in this category.</p>';
+                    endif;
+                    ?>
+                </div>
             </div>
+        </section>
 
-            <?php get_template_part('template-social-links'); ?>
+    <?php
+    endforeach;
+endif;
+?>
 
-        </div>
-    </div>
-</section>
-
+<?php get_template_part('template-parts/banner'); ?>
 <?php get_footer(); ?>

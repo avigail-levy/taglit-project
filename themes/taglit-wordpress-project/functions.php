@@ -30,7 +30,8 @@ function iron_swords_register_post_types() {
             'add_new_item' => 'Add New Alumni Post'
         ),
         'public'      => true,
-        'has_archive' => true,
+        'has_archive' => false,
+        'rewrite'      => array('slug' => 'alumni-posts'),
         'menu_icon'   => 'dashicons-groups',
         'supports'    => array('title', 'editor', 'thumbnail'),
         'show_in_rest' => true,
@@ -43,7 +44,7 @@ function iron_swords_register_post_types() {
             'add_new_item' => 'Add New Staff Post'
         ),
         'public'      => true,
-        'has_archive' => true,
+        'has_archive' => false,
         'menu_icon'   => 'dashicons-businessman',
         'supports'    => array('title', 'editor', 'thumbnail'),
         'show_in_rest' => true,
@@ -109,12 +110,15 @@ function iron_swords_register_taxonomies() {
 add_action('init', 'iron_swords_register_taxonomies');
 
 //check it!!!
-if( function_exists('acf_add_options_page') ) {
-    acf_add_options_page(array(
-        'page_title'    => 'General Settings',
-        'menu_title'    => 'General Settings',
-        'menu_slug'     => 'general-settings',
-        'capability'    => 'edit_posts',
-        'redirect'      => false
-    ));
+add_action('acf/init', 'my_acf_op_init');
+function my_acf_op_init() {
+    if( function_exists('acf_add_options_page') ) {
+        acf_add_options_page(array(
+            'page_title'    => 'General Settings',
+            'menu_title'    => 'General Settings',
+            'menu_slug'     => 'general-settings',
+            'capability'    => 'edit_posts',
+            'redirect'      => false
+        ));
+    }
 }
