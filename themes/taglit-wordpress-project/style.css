@@ -511,7 +511,6 @@
   gap: 8px;
 }
 
-/* צבע תכלת לכל האייקונים של הקטגוריות */
 .alumni-page .category-title i {
   color: #32BAF6;
 }
@@ -559,7 +558,6 @@
   }
 }
 
-/* Staff Cards - same styles as Alumni */
 .staff-card__media {
   position: relative;
   display: block;
@@ -712,7 +710,6 @@
   gap: 8px;
 }
 
-/* צבע תכלת לכל האייקונים של הקטגוריות */
 .staff-page .category-title i {
   color: #32BAF6;
 }
@@ -758,4 +755,9 @@
   .staff-page .staff-grid {
     grid-template-columns: minmax(0, 1fr);
   }
+}
+.category-sidebar {
+  display: flex;
+  flex-direction: column;
+  gap: 40px; 
 }

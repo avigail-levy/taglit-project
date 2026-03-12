@@ -12,7 +12,8 @@ if (is_array($post_image) && !empty($post_image['url'])) {
 <article class="alumni-card alumni-card--image">
     <?php if ($image_url): ?>
         <div class="alumni-card__media">
-            <img class="alumni-card__image" src="<?php echo esc_url($image_url); ?>" alt="<?php the_title_attribute(); ?>">
+            <img class="alumni-card__image" src="<?php echo esc_url($image_url); ?>
+            " alt="<?php the_title_attribute(); ?>">
         </div>
     <?php endif; ?>
 

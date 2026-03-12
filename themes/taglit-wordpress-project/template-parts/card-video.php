@@ -13,7 +13,8 @@ if ($use_custom_video_preview && is_array($video_preview_image) && !empty($video
 <article class="alumni-card alumni-card--video">
     <div class="alumni-card__media alumni-card__media--video">
         <?php if ($preview_url): ?>
-            <img class="alumni-card__image" src="<?php echo esc_url($preview_url); ?>" alt="<?php the_title_attribute(); ?>">
+            <img class="alumni-card__image" src="<?php echo esc_url($preview_url); ?>
+            " alt="<?php the_title_attribute(); ?>">
         <?php else: ?>
             <div class="alumni-card__video-placeholder"></div>
         <?php endif; ?>

@@ -31,16 +31,18 @@
     <div class="link">
         <?php 
         $front_id = get_option('page_on_front');
-        $login_text = get_field('login_button_text', $front_id) ?: get_field('login_button_text');
-        $login_url  = get_field('login_button_url', $front_id) ?: get_field('login_button_url');
+        
+        $header_button = get_field('header_button', $front_id) ?: get_field('header_button', 'option');
 
-        if ( ! $login_text && is_user_logged_in() ) {
-            $login_text = "Login"; 
-        }
-
-        if ( $login_text ) : ?>
-            <a href="<?php echo esc_url($login_url); ?>" class="login-btn">
-                <?php echo esc_html($login_text); ?>
+        if ( $header_button ) : 
+            $button_url    = $header_button['url'];
+            $button_title  = $header_button['title'];
+            $button_target = $header_button['target'] ? $header_button['target'] : '_self';
+            ?>
+            <a href="<?php echo esc_url($button_url); ?>" 
+               class="login-btn" 
+               target="<?php echo esc_attr($button_target); ?>">
+                <?php echo esc_html($button_title); ?>
             </a>
         <?php endif; ?>
     </div>
