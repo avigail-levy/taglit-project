@@ -122,3 +122,6 @@ function my_acf_op_init() {
         ));
     }
 }
+function my_theme_scripts() {
+    wp_enqueue_script('video-handler', get_template_directory_uri() . '/assets/js/video-handler.js', array(), '1.0', true);}
+add_action('wp_enqueue_scripts', 'my_theme_scripts');

@@ -1,28 +1,27 @@
 <?php
-$social_query = new WP_Query(array(
-    'post_type'      => 'socials',
-    'posts_per_page' => -1, 
-    'post_status'    => 'publish'
-));
+/**
+ * Template part for displaying social links based on selection
+ * * @var array $args['selected_socials'] המערך שנשלח מהקובץ הקורא
+ */
 
-if ($social_query->have_posts()) : ?>
-    <div class="social-icons d-flex gap-2">
-        <?php while ($social_query->have_posts()) : $social_query->the_post(); 
-            $icon_class = get_field('icon_class'); 
-            $social_url = get_field('social_url'); 
-            $icon_color = get_field('icon_color'); 
-            
-            $color = $icon_color ? $icon_color : '#0000FF';
+$selected_socials = isset($args['selected_socials']) ? $args['selected_socials'] : [];
+
+if (!empty($selected_socials) && is_array($selected_socials)) : ?>
+    <div class="cta-banner__social-links d-flex gap-3">
+        <?php foreach ($selected_socials as $social_id) : 
+            $icon_class = get_field('icon_class', $social_id);
+            $link       = get_field('social_url', $social_id);
+            $color      = get_field('icon_color', $social_id);
+            $final_color = $color ? $color : '#0000FF';
         ?>
-            <?php if ($social_url && $icon_class) : ?>
-                <a href="<?php echo esc_url($social_url); ?>" 
+            <?php if ($link && $icon_class) : ?>
+                <a href="<?php echo esc_url($link); ?>" 
                    target="_blank" 
-                   class="social-icon-circle" 
-                   rel="noopener noreferrer"
-                   style="background-color: <?php echo esc_attr($color); ?>;">
+                   rel="noopener noreferrer" 
+                   style="color: <?php echo esc_attr($final_color); ?>;">
                     <i class="<?php echo esc_attr($icon_class); ?>"></i>
                 </a>
             <?php endif; ?>
-        <?php endwhile; wp_reset_postdata(); ?>
+        <?php endforeach; ?>
     </div>
 <?php endif; ?>
