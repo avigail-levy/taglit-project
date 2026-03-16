@@ -18,7 +18,8 @@ if ($use_custom_video_preview && !empty($video_preview_image)) {
          data-video-embed="<?php echo esc_attr($video_iframe); ?>">
         
         <?php if (!empty($preview_url)): ?>
-            <img class="alumni-card__image" src="<?php echo esc_url($preview_url); ?>" alt="<?php the_title_attribute(); ?>">
+            <img class="alumni-card__image" src="<?php echo esc_url($preview_url); ?>
+            " alt="<?php the_title_attribute(); ?>">
         <?php else: ?>
             <div class="alumni-card__video-placeholder" style="background-color: #000; width: 100%; height: 100%; min-height: 200px;"></div>
         <?php endif; ?>

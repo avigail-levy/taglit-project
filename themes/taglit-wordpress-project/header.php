@@ -20,7 +20,7 @@
 </div>
 
 <header class="site-header">
-    <div class="logo">
+    <div class="logo-header">
         <?php 
         if (has_custom_logo()) {
             the_custom_logo();
@@ -30,7 +30,7 @@
         ?>
     </div>
 
-    <nav class="links">
+    <nav class="header-menu-links">
         <?php 
         wp_nav_menu(array(
             'theme_location' => 'main_menu',

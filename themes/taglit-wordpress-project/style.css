@@ -4,23 +4,34 @@
  Description: A custom theme for Alumni and Staff blog environments.
  Version: 1.0
 */
-
+@font-face {
+  font-family: 'Nexa';
+  src: url('fonts/nexa/nexabold.woff2') format('woff2'),
+       url('fonts/nexa/Nexa-Black.woff2') format('woff'),
+       url('fonts/nexa/Nexa-Heavy.woff2') format('truetype');
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
 .site-header * {
     box-sizing: border-box;
 }
 
 .site-header {
-    height: 76px; 
-    padding: 0 60px; 
+    height: 65px; 
+    padding-left:60px; 
+    padding-right: 60px;
     background-color: #FFFFFF;
     display: flex;
     justify-content: space-between; 
     align-items: center;
     border-bottom: 1px solid #E5E5E5;
     width: 100%;
+    top:64px
 }
 
-.links {
+.header-menu-links {
+  width: 287px;
     height: 76px; 
     display: flex;
     align-items: center;
@@ -38,20 +49,19 @@
     text-decoration: none;
     color: #4A4A4A;
     font-size: 13px;
-    font-weight: 500;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
+    font-weight: 700;
+    letter-spacing: 1.3px;
 }
 
-.logo {
+.logo-header {
     width: 160px; 
-    height: 76px; 
+    height: 60px; 
     display: flex;
     align-items: center;
 }
 
-.logo img {
-    max-height: 40px; 
+.logo-header img {
+    max-height: 55px; 
     width: auto;
 }
 
@@ -69,7 +79,7 @@
     text-transform: uppercase;
 }
 
-.hero-section {
+/* .hero-section {
     position: relative;
     width: 100%;
     height: 760px; 
@@ -78,7 +88,7 @@
     align-items: center;
     justify-content: center;
     overflow: hidden;
-}
+} */
 
 .hero-texture-overlay {
     position: absolute;
@@ -92,7 +102,7 @@
     z-index: 2;
 }
 
-.hero-section::before {
+/* .hero-section::before {
     content: '';
     position: absolute;
     top: 0;
@@ -104,17 +114,37 @@
     background-position: left center;
     opacity: 0.6; 
     z-index: 1;
-}
+} */
 
-.hero-main-title {
-    font-family: 'Nexa Heavy';
+.swords-of-iron_title {
+    /* font-family: 'Nexa Heavy';
     font-size: 80px; 
     font-weight: 900; 
     line-height: 1.1;
     color: #FFFFFF;
     text-transform: uppercase;
     margin-bottom: 24px;
-    letter-spacing: -0.02em;
+    letter-spacing: -0.02em; */
+    /* Swords of Iron */
+
+width: 739px;
+height: 80px;
+
+font-family: 'Nexa Heavy', sans-serif !important;
+font-style: normal;
+font-weight: 900;
+font-size: 70px;
+line-height: 80px;
+/* identical to box height */
+text-align: center;
+text-transform: uppercase;
+
+color: #FFFFFF;
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+
 }
 
 .hero-container {
@@ -168,11 +198,11 @@
     box-sizing: border-box;
   }
   
-  .cta-banner__overlay {
+  /* .cta-banner__overlay {
     position: absolute;
     inset: 0;
     background: rgba(5, 13, 26, 0.70);
-  }
+  } */
   
   .cta-banner__inner {
     position: relative;
@@ -208,8 +238,8 @@
     text-align: center;
   }
   
-  .cta-banner__text {
-    margin: 0 auto;
+  .cta-hero_text {
+    /* margin: 0 auto;
     width: 100%;
     max-width: 1000px;
     color: #ffffff;
@@ -218,10 +248,34 @@
     font-weight: 700;
     line-height: 40px;
     letter-spacing: 0;
-    text-align: center;
+    text-align: center; */
+
+    /* The 10/07 atrocities perpetrated by the Hamas terrorist organization against innocent Jews and Israelis are acts of pure evil and unadulterated barbarism - wholly set apart from any form of human conduct. Birthright Israel calls to action each and all of its 850,000 alumni to stand unified and have their voices clearly heard worldwide and on every platform. We encourage you to learn more about the Israel/Hamas war and be as vocal as possible with us. */
+
+width: 1000px;
+height: 200px;
+
+font-family: 'Nexa Bold';
+font-style: normal;
+font-weight: 700;
+font-size: 20px;
+line-height: 40px;
+/* or 200% */
+text-align: center;
+text-transform: capitalize;
+
+color: #FFFFFF;
+
+
+/* Inside auto layout */
+flex: none;
+order: 1;
+flex-grow: 0;
+
   }
   
   .cta-banner__actions {
+    flex-direction: row;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -230,20 +284,61 @@
     flex-wrap: wrap;
   }
   
-  .cta-banner__socials {
+  /* .cta-banner__socials {
     display: flex;
     align-items: center;
     gap: 20px;                
-}
+} */
   
-  .cta-banner__share-label {
-    margin: 0;
+  .cta__share-label {
+    /* margin: 0;
     color: #ffffff;
     font-size: 20px;
     font-weight: 400;
-    line-height: 1;
+    line-height: 1; */
+    /* Share on */
+
+width: 110px;
+height: 40px;
+
+font-family: 'Nexa Bold';
+font-style: normal;
+font-weight: 700;
+font-size: 24px;
+line-height: 40px;
+/* identical to box height, or 167% */
+text-align: center;
+text-transform: capitalize;
+
+color: #FFFFFF;
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+
   }
-  
+  .cta-social__social-links{
+/* Social buttons */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+align-items: flex-start;
+padding: 0px;
+gap: 16px;
+
+width: 272px;
+height: 56px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 1;
+flex-grow: 0;
+
+  }
   .cta-banner__or {
     color: #ffffff;
     font-size: 20px;
@@ -843,8 +938,14 @@ order: 3;
 flex-grow: 0;
 z-index: 3;
 }
+/*קישורים מעל ההידר*/
 .top-links-bar{
-  background:#0c1d3c;
+  background:#0F1935;
+  height: 64px;
+  padding-left:35px;
+  display: flex;
+  align-items: center;
+  
 }
 
 .top-links-list{
@@ -853,13 +954,16 @@ z-index: 3;
   gap:40px;
   margin:0;
   padding:10px 40px;
+  
 }
 
 .top-links-list a{
+  font-family: 'Nexa', sans-serif;
   color:white;
   text-decoration:none;
+  font-size:16px;
 }
-
+/**/
 .category-nav__link.is-active {
   color: #32BAF6 !important;
   font-weight: 600;
@@ -939,4 +1043,110 @@ z-index: 3;
   width: 30px; 
   height: auto;
   transition: transform 0.3s ease;
+}
+/* ניהול השכבות של ההירו */
+.hero-section {
+  position: relative;
+  width: 100%;
+  height: 760px; /* גובה מדויק מפיגמה */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  gap:72px
+}
+
+
+   .hero-bg-texture {
+    position: absolute;
+    inset: 0;
+    background-image: url('assets/images/black-dark-bcg.jpg'); /* הנתיב המתוקן */
+    background-size: cover;
+    background-position: center;
+    z-index: 1;
+}
+
+.hero-flag-layer {
+    position: absolute;
+    inset: 0;
+    background-size: cover;
+    background-position: left center;
+    background-repeat: no-repeat;
+    opacity: 0.6; 
+    mix-blend-mode: luminosity; 
+    z-index: 2;
+}
+
+.cta-banner__overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(5, 13, 26, 0.7); 
+  z-index: 3;
+}
+
+.cta-banner__inner {
+  position: relative;
+  z-index: 10;
+  width: 100%;
+}
+
+.cta-banner__title {
+  font-family: 'Nexa Heavy', sans-serif;
+  font-size: 70px;
+  font-weight: 900;
+  line-height: 1;
+  color: #FFFFFF;
+  margin-bottom: 24px;
+  text-transform: uppercase;
+}
+
+.cta-banner__text {
+  font-size: 20px;
+  line-height: 1.4;
+  color: #FFFFFF;
+  margin-bottom: 40px;
+  max-width: 838px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.heading-paragraph{
+  /* Heading + paragraph */
+
+/* Auto layout */
+display: flex;
+flex-direction: column;
+align-items: center;
+padding: 0px;
+gap: 24px;
+
+width: 1000px;
+height: 304px;
+
+
+/* Inside auto layout */
+flex: none;
+flex-grow: 0;
+z-index: 2;
+
+}
+.cta-social-links{
+  /* Social links */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+align-items: center;
+padding: 0px;
+gap: 24px;
+
+width: 740px;
+height: 56px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 3;
+flex-grow: 0;
+z-index: 3;
+
 }

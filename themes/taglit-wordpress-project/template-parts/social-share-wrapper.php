@@ -11,8 +11,8 @@ $btn_url          = isset($args['btn_url']) ? $args['btn_url'] : '';
 $btn_text         = isset($args['btn_text']) ? $args['btn_text'] : '';
 
 if (!empty($selected_socials)) : ?>
-    <div class="cta-banner__socials">
-        <span class="cta-banner__share-label">Share On</span>
+    <div class="cta-social-links">
+        <span class="cta__share-label">Share On</span>
         
         <?php 
         get_template_part('template-parts/social-links', null, [

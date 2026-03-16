@@ -21,20 +21,29 @@ $bg_url = is_array($bg_desktop) ? $bg_desktop['url'] : $bg_desktop;
 $logo_url = is_array($logo) ? $logo['url'] : $logo;
 ?>
 
-
-<section class="hero-section cta-banner" style="background-image: url('<?php echo esc_url($bg_url); ?>');">
+<section class="hero-section">
+    <div class="hero-bg-texture" style="background-image: url('<?php echo esc_url($bg_url); ?>');"></div>
+    
+    <div class="hero-flag-layer" style="background-image: url('<?php echo get_template_directory_uri(); ?>/assets/images/flag-israel-bcg.jpg');"></div>    
     <div class="cta-banner__overlay"></div>
+
     <div class="cta-banner__inner container">
         <div class="cta-banner__content">
             
-        <?php if($logo_url): ?>
+            <?php if($logo_url): ?>
                 <div class="cta-banner__logo" style="margin-bottom: 20px;">
-                    <img src="<?php echo esc_url($logo_url); ?>" alt="Hero Logo" style="max-width: 200px; height: auto;">
+                    <img src="<?php echo esc_url($logo_url); ?>" alt="Hero Logo" style="width: 331.49px; height: 80px;">
                 </div>
             <?php endif; ?>
+        <div class="heading-paragraph">  
+            <?php if($title): ?>
+                <h1 class="swords-of-iron_title"><?php echo esc_html($title); ?></h1>
+            <?php endif; ?>
 
-            <?php if($title): ?><h1 class="cta-banner__title"><?php echo esc_html($title); ?></h1><?php endif; ?>
-            <?php if($subtitle): ?><p class="cta-banner__text"><?php echo esc_html($subtitle); ?></p><?php endif; ?>
+            <?php if($subtitle): ?>
+                <p class="cta-hero_text"><?php echo esc_html($subtitle); ?></p>
+            <?php endif; ?>
+        </div>
 
             <?php if(($btn_text && $btn_url) || (!empty($selected_socials))): ?>
                 <div class="cta-banner__actions">
