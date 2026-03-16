@@ -233,8 +233,8 @@
   .cta-banner__socials {
     display: flex;
     align-items: center;
-    gap: 16px;
-  }
+    gap: 20px;                
+}
   
   .cta-banner__share-label {
     margin: 0;
@@ -254,22 +254,50 @@
   .cta-banner .social-icons {
     display: flex;
     align-items: center;
-    gap: 12px;
-  }
+    gap: 15px;                 
+    gap: 16px;
+}
   
-  .cta-banner .social-icon-circle {
-    width: 32px;
-    height: 32px;
-    border-radius: 50%;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    text-decoration: none;
-    background: #ffffff;
-    color: inherit;
-    font-size: 16px;
-  }
-  
+.social-button {
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+padding: 10px;
+gap: 10px;
+width: 56px;
+height: 56px;
+background: #FFFFFF;
+border-radius: 999px;
+flex: none;
+order: 0;
+flex-grow: 0;
+
+    
+}
+.cta-banner__social-links  a  {
+  width: 56px;
+  height: auto;
+  line-height: 1;
+  letter-spacing: 0;
+  text-transform: capitalize;
+}
+
+.cta-banner__social-links  a i {
+width: 28px;
+height: 32px;
+font-family: 'Font Awesome 6 Brands';
+font-style: normal;
+font-weight: 400;
+font-size: 32px;
+line-height: 32px;
+text-transform: capitalize;
+flex: none;
+order: 0;
+flex-grow: 0;
+}
+
+
   .cta-banner__button {
     display: inline-flex;
     align-items: center;
@@ -292,7 +320,6 @@
     text-decoration: none;
   }
   
-  /*  התאמת צבעי האייקונים לרקע הלבן צריך לשנות את זה להיות באופשיין פייג ושם יהיה שדה של צבע האייקון*/
   .cta-banner .fa-instagram {
     color: #ff4fa3;
   }
@@ -351,11 +378,11 @@
       flex-direction: column;
       gap: 16px;
     }
-  
     .cta-banner__socials {
-      flex-wrap: wrap;
-      justify-content: center;
-    }
+      display: flex;
+      align-items: center;
+      gap: 20px;                
+  }
   }
 
   /* Alumni */
@@ -411,12 +438,39 @@
   align-items: center;
 }
 
+.alumni-card__social-avatar img{
+object-fit: cover;
+border-radius: 50%;
+border: 3px solid #FFFFFF; 
+box-sizing: border-box;
+
+}
+
 .alumni-card__social-avatar {
-  width: 88px;
-  height: 88px;
-  border-radius: 50%;
-  overflow: hidden;
-  margin: 0 auto 12px;
+display: flex;
+flex-direction: row;
+align-items: flex-start;
+padding: 10px 28px;
+gap: 10px;
+
+
+
+width: 144px;
+    height: 144px;
+    border-radius: 50%;
+    
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+    background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888);
+    
+    padding: 3px; 
+    
+    position: relative;
+
+    
+
 }
 
 .alumni-card__social-image {
@@ -682,16 +736,6 @@
   border-radius: 0;
 }
 
-.staff-page .category-nav__link.is-active {
-  color: #32BAF6;
-  font-weight: 600;
-}
-
-.staff-page .category-nav__link:hover {
-  background: transparent;
-  color: #32BAF6;
-}
-
 .staff-page .content-sections__main {
   width: 873px;
 }
@@ -784,4 +828,115 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
+}
+.alumni-card alumni-card--social{
+/* Borders */
+
+position: absolute;
+width: 816px;
+height: 378px;
+left: 28px;
+top: 82px;
+
+flex: none;
+order: 3;
+flex-grow: 0;
+z-index: 3;
+}
+.top-links-bar{
+  background:#0c1d3c;
+}
+
+.top-links-list{
+  display:flex;
+  list-style:none;
+  gap:40px;
+  margin:0;
+  padding:10px 40px;
+}
+
+.top-links-list a{
+  color:white;
+  text-decoration:none;
+}
+
+.category-nav__link.is-active {
+  color: #32BAF6 !important;
+  font-weight: 600;
+}
+
+.category-nav__link:hover {
+  color: #32BAF6;
+}
+
+.site-footer {
+  border-top: 1px solid #E5E5E5;
+  background-color: #FFFFFF !important;
+}
+
+.footer-links-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 200px; 
+  justify-content: center;
+  padding-left: 150px;
+}
+
+.footer-links-column {
+  margin: 0;
+  padding: 0;
+  min-width: 150px; 
+}
+
+.footer-link-item {
+  margin-bottom: 12px;
+}
+
+.footer-link-item a {
+  text-decoration: none !important; 
+  color: #4A4A4A; 
+  font-size: 14px;
+  font-weight: 500;
+  transition: color 0.2s ease;
+}
+
+.footer-link-item a:hover {
+  color: #32BAF6; 
+}
+
+/* Powered byyyy */
+.footer-social-title {
+  color: #000000;
+  font-size: 16px;
+  margin-bottom: 20px;
+}
+
+.powered-by-text, .credit-link {
+  font-size: 12px;
+  color: #9B9B9B;
+  text-decoration: none !important;
+}
+
+.credit-link {
+  font-weight: 700;
+  color: #4A4A4A;
+}
+.footer-social-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center; 
+  text-align: center;
+}
+
+.footer-social-icons {
+  display: flex;
+  justify-content: center;
+  gap: 2px;
+  margin-top: 10px;
+}
+
+.footer-social-icons a img {
+  width: 30px; 
+  height: auto;
+  transition: transform 0.3s ease;
 }

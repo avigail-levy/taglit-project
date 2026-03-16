@@ -7,6 +7,18 @@
 </head>
 <body <?php body_class(); ?>>
 
+
+
+<div class="top-links-bar">
+    <?php 
+    wp_nav_menu(array(
+        'theme_location' => 'top_links_menu',
+        'container'      => false,
+        'menu_class'     => 'top-links-list'
+    ));
+    ?>
+</div>
+
 <header class="site-header">
     <div class="logo">
         <?php 

@@ -1,7 +1,7 @@
 <?php
 /**
  * Template part for displaying social links based on selection
- * * @var array $args['selected_socials'] המערך שנשלח מהקובץ הקורא
+ * * @var array $args['selected_socials']
  */
 
 $selected_socials = isset($args['selected_socials']) ? $args['selected_socials'] : [];
@@ -15,12 +15,13 @@ if (!empty($selected_socials) && is_array($selected_socials)) : ?>
             $final_color = $color ? $color : '#0000FF';
         ?>
             <?php if ($link && $icon_class) : ?>
-                <a href="<?php echo esc_url($link); ?>" 
+              <div class="social-button">  <a href="<?php echo esc_url($link); ?>" 
                    target="_blank" 
                    rel="noopener noreferrer" 
                    style="color: <?php echo esc_attr($final_color); ?>;">
                     <i class="<?php echo esc_attr($icon_class); ?>"></i>
                 </a>
+            </div>
             <?php endif; ?>
         <?php endforeach; ?>
     </div>

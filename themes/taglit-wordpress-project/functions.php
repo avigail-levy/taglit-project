@@ -7,10 +7,10 @@ function iron_swords_enqueue_assets() {
 }
 add_action('wp_enqueue_scripts', 'iron_swords_enqueue_assets');
 
-
 function iron_swords_setup() {
     register_nav_menus(array(
-        'main_menu' => 'Main Navigation Menu'
+        'main_menu' => 'Main Navigation Menu',
+        'top_links_menu' => 'Top Links Menu'
     ));
 
     add_theme_support('custom-logo');
@@ -18,7 +18,6 @@ function iron_swords_setup() {
     add_theme_support('title-tag');
 }
 add_action('after_setup_theme', 'iron_swords_setup');
-
 
 // Register Custom Post Typess
 function iron_swords_register_post_types() {
@@ -123,5 +122,7 @@ function my_acf_op_init() {
     }
 }
 function my_theme_scripts() {
-    wp_enqueue_script('video-handler', get_template_directory_uri() . '/assets/js/video-handler.js', array(), '1.0', true);}
+    wp_enqueue_script('video-handler', get_template_directory_uri() . '/assets/js/video-handler.js', array(), '1.0', true);
+    wp_enqueue_script('category-isActive', get_template_directory_uri() . '/assets/js/category-isActive.js', array(), '1.0', true);
+}
 add_action('wp_enqueue_scripts', 'my_theme_scripts');
