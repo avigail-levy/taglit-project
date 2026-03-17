@@ -22,8 +22,8 @@ if ($banner_link && is_array($banner_link)) {
 ?>
 
 <section class="cta-banner" style="background-image: url('<?php echo esc_url($banner_bg_desktop_url); ?>');">
-    <div class="cta-banner__overlay"></div>
-    <div class="cta-banner__inner container">
+    <div class="banner__overlay"></div>
+    <div class="banner__inner container">
         <div class="cta-banner__content">
 
             <?php if ($banner_title): ?><h2 class="cta-banner__title"><?php echo esc_html($banner_title); ?></h2><?php endif; ?>
@@ -39,14 +39,6 @@ if ($banner_link && is_array($banner_link)) {
                         'btn_text'         => $btn_text
                     ]); 
                     ?>
-
-                    <?php if ($btn_url && $btn_text): ?>
-                        <a class="cta-banner__button" href="<?php echo esc_url($btn_url); ?>
-                        " target="<?php echo esc_attr($btn_target); ?>" rel="noopener noreferrer">
-                            <?php echo esc_html($btn_text); ?>
-                        </a>
-                    <?php endif; ?>
-
                 </div>
             <?php endif; ?>
         </div>

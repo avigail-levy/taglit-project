@@ -19,11 +19,17 @@ if (!empty($selected_socials)) : ?>
             'selected_socials' => $selected_socials
         ]); 
         ?>
-    </div>
-
     <?php 
     if ($btn_url && $btn_text) : ?>
         <span class="cta-banner__or">Or</span>
+
+        <?php if ($btn_url && $btn_text): ?>
+                        <a class="cta-banner__button" href="<?php echo esc_url($btn_url); ?>
+                        " target="<?php echo esc_attr($btn_target); ?>" rel="noopener noreferrer">
+                            <?php echo esc_html($btn_text); ?>
+                        </a>
+                    <?php endif; ?>
+    </div>
     <?php endif; ?>
 
 <?php endif; ?>

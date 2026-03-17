@@ -7,7 +7,7 @@
 $selected_socials = isset($args['selected_socials']) ? $args['selected_socials'] : [];
 
 if (!empty($selected_socials) && is_array($selected_socials)) : ?>
-    <div class="cta-social__social-links d-flex gap-3">
+    <div class="cta-banner__social-links d-flex gap-3">
         <?php foreach ($selected_socials as $social_id) : 
             $icon_class = get_field('icon_class', $social_id);
             $link       = get_field('social_url', $social_id);

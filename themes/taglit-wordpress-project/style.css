@@ -4,24 +4,82 @@
  Description: A custom theme for Alumni and Staff blog environments.
  Version: 1.0
 */
+ol, ul,h1,p {
+  padding: 0;
+  margin: 0;
+  }
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box; 
+}
+html {
+  font-size: 16px; 
+}
+
+html body {
+  font-family: 'Nexa', sans-serif;
+  font-size: 1rem; /* כלומר 16px כברירת מחדל לכל האתר */
+  line-height: 1.5; /* מומלץ להוסיף לקריאות */
+  color:#172336;
+  align-items: center;
+  justify-content: center;
+}
+
+:root {
+  /* צבעים */
+  --primary-blue: #0F1935;
+  --action-blue: #00AEEF;
+  --white: #ffffff;
+  /* גדלים */
+
+
+  /* פונטים - כאן אנחנו מגדירים את שם הפונט כמשתנה */
+  --main-font: 'Nexa', sans-serif;
+}
 @font-face {
   font-family: 'Nexa';
-  src: url('fonts/nexa/nexabold.woff2') format('woff2'),
-       url('fonts/nexa/Nexa-Black.woff2') format('woff'),
-       url('fonts/nexa/Nexa-Heavy.woff2') format('truetype');
-  font-weight: 900;
+  src: url('fonts/nexa/nexabold.woff2') format('woff2');
+  font-weight: 700;
   font-style: normal;
-  font-display: swap;
 }
+@font-face {
+  font-family: 'Nexa';
+  src: url('fonts/nexa/Nexa-Heavy.woff2') format('woff2');
+  font-weight: 900;
+}
+/*--------------------------------HEADER SECTION--------------------------------*/
+/*קישורים מעל ההידר*/
+.top-links-bar{
+  background:var(--primary-blue);
+  display: flex;
+  align-items: center;
+  padding: 24px 35px;
+  min-height: 50px;    
+}
+
+.top-links-list{
+  display:flex;
+  gap:40px;
+  margin: 0;
+  /* padding:10px 40px; */
+}
+
+.top-links-list a{
+  font-family: 'Nexa', sans-serif;
+  color:white;
+  text-decoration:none;
+  font-size:16px;
+}
+
 .site-header * {
     box-sizing: border-box;
 }
 
-.site-header {
-    height: 65px; 
+.site-header { 
     padding-left:60px; 
     padding-right: 60px;
-    background-color: #FFFFFF;
+    background-color: var(--white);
     display: flex;
     justify-content: space-between; 
     align-items: center;
@@ -31,8 +89,8 @@
 }
 
 .header-menu-links {
-  width: 287px;
-    height: 76px; 
+    max-width: 287px;
+    min-height: 76px; 
     display: flex;
     align-items: center;
 }
@@ -40,151 +98,612 @@
 .main-menu-list {
     display: flex;
     list-style: none;
-    margin: 0;
-    padding: 0;
     gap: 30px; 
 }
 
 .main-menu-list li a {
     text-decoration: none;
     color: #4A4A4A;
-    font-size: 13px;
+    font-size: 14px;
     font-weight: 700;
     letter-spacing: 1.3px;
 }
 
 .logo-header {
-    width: 160px; 
-    height: 60px; 
+    max-width: 160px; 
     display: flex;
     align-items: center;
+flex-direction: column;
+padding: 18px 0px;
+gap: 10px;
+
 }
 
 .logo-header img {
-    max-height: 55px; 
-    width: auto;
+  max-width: 160px;
+  gap: 10px;
 }
 
-.link {
-    width: 93px; 
+.btn_login {
+    max-width: 93px; 
     display: flex;
-    justify-content: flex-end;
+justify-content: center;
+align-items: center;
+padding: 31px 24px;
+gap: 10px;
+background: var(--white);
+
+
 }
 
-.login-btn {
+.link-login {
+    color: var(--primary-blue);
     text-decoration: none;
-    color: #000000;
-    font-size: 12px;
+    font-size: 14px;
     font-weight: 700;
-    text-transform: uppercase;
+}
+/*-------------------------------------HERO SECTION------------------------------- */
+.hero-section {
+  position: relative;
+  width: 100%;
+  display: flex;
+  overflow: hidden;
+}
+.hero-bg-texture {
+  position: absolute;
+  inset: 0;
+  background-image: url('assets/images/black-dark-bcg.jpg'); /* הנתיב המתוקן */
+  background-size: cover;
+  background-position: center;
+  z-index: 1;
 }
 
-/* .hero-section {
-    position: relative;
-    width: 100%;
-    height: 760px; 
-    background-color: #050D1A; 
+.banner__overlay, .hero__overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(5, 13, 26, 0.7); 
+  z-index: 1;
+}
+.hero__inner,.banner__inner {
+  position: relative;
+  z-index: 10;
+  width: 100%;
+}
+
+.hero-flag-layer {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  width: 50%; /* תופס חצי מסך שמאלי */
+  
+  background-size: 150%; /* עושים זום כדי שיהיה מה להזיז */
+  background-position: 90% center; /* דוחף את התמונה ימינה בתוך הדיב */
+  background-repeat: no-repeat;
+  
+  /* המסיכה שדואגת למעבר החלק לשחור */
+  -webkit-mask-image: linear-gradient(to right, black 10%, transparent 90%);
+  mask-image: linear-gradient(to right, black 10%, transparent 90%);
+  /* פחות זוהר, צבעים עדיין חזקים */
+  filter: saturate(1.4) contrast(1.1) brightness(0.8);
+  z-index: 2;
+  mix-blend-mode: normal;
+}
+.cta-banner__logo{
+padding-top: 88px;
+}
+.cta-banner__content {
+  width: 100%;
+  max-width: 1000px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  margin:  auto;
+}
+.heading-paragraph{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0px;
+  gap: 24px;
+  max-width: 1000px;
+  min-height: 304px;
+  }
+
+.swords-of-iron_title, .cta-banner__title {
+font-weight: 900;
+font-size: 80px;
+line-height: 100%;
+text-align: center;
+padding-top:72px;
+color: var(--white);
+}
+.cta-hero_text {
+  max-width: 1000px;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 40px;
+  text-align: center;
+  text-transform: capitalize;
+  color: var(--white);
+    }
+      
+  .cta-banner__actions {
+    flex-direction: row;
     display: flex;
     align-items: center;
     justify-content: center;
-    overflow: hidden;
-} */
-
-.hero-texture-overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-image: url('images/black-dark-bcg.jpg'); 
-    background-size: cover;
-    mix-blend-mode: multiply; 
-    z-index: 2;
-}
-
-/* .hero-section::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-image: var(--hero-bg);
-    background-size: cover;
-    background-position: left center;
-    opacity: 0.6; 
-    z-index: 1;
-} */
-
-.swords-of-iron_title {
-    /* font-family: 'Nexa Heavy';
-    font-size: 80px; 
-    font-weight: 900; 
-    line-height: 1.1;
-    color: #FFFFFF;
-    text-transform: uppercase;
-    margin-bottom: 24px;
-    letter-spacing: -0.02em; */
-    /* Swords of Iron */
-
-width: 739px;
-height: 80px;
-
-font-family: 'Nexa Heavy', sans-serif !important;
-font-style: normal;
-font-weight: 900;
-font-size: 70px;
-line-height: 80px;
-/* identical to box height */
-text-align: center;
-text-transform: uppercase;
-
-color: #FFFFFF;
-/* Inside auto layout */
-flex: none;
-order: 0;
-flex-grow: 0;
-
-}
-
-.hero-container {
-    position: relative;
-    z-index: 10; 
-    width: 100%;
-    padding: 0 60px; 
-}
-
-.hero-description {
-    font-size: 18px; 
-    color: rgba(255, 255, 255, 0.8);
-    max-width: 600px;
-    margin: 0 auto;
-    line-height: 1.6;
-}
-
-.btn-support-now {
-    display: inline-block;
-    padding: 16px 36px; 
-    background-color: #0047BB; 
-    color: #FFFFFF;
-    text-decoration: none;
-    font-size: 16px;
-    font-weight: 700;
-    border-radius: 999px; 
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-    margin-top: 40px; 
-}
-
-.hero-socials {
+    gap: 24px;
+    min-height: 56px;
+    flex-wrap: wrap;
+  }
+  .cta-social-links{
     display: flex;
-    gap: 20px;
+    align-items: center;
+    gap: 24px;
+    margin: 65px;
+    flex-wrap: wrap;
     justify-content: center;
-    color: #FFFFFF;
-    font-size: 20px;
-}
+    
+    } 
+/*---------------------------posts + categories--------------------------------*/
 
-/* באנרר */
+.alumni-page .content-sections__layout {
+  display: grid;
+  grid-template-columns: 274px minmax(0, 873px);
+  justify-content: center;
+  column-gap: 15px;
+  align-items: start;
+  padding-top: 100px;
+}
+  .alumni-card__media {
+    position: relative;
+    display: block;
+  }
+  
+  .alumni-card__media--video {
+    text-decoration: none;
+    color: inherit;
+    cursor: pointer;
+  }
+  
+  .alumni-card__image {
+    width: 100%;
+    display: block;
+    object-fit: cover;
+  }
+  
+  .alumni-card-image .alumni-card__image,
+  .alumni-card--video .alumni-card__image {
+    aspect-ratio: 275 / 154;
+  }
+  
+  .alumni-card__title {
+    margin: 12px 0 0;
+    font-size: 16px;
+    line-height: 1.35;
+    font-weight: 600;
+    color: #1f2d3d;
+  }
+  
+  .alumni-card__play {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 44px;
+    color: rgba(255, 255, 255, 0.95);
+  }
+  
+  .alumni-card--social {
+    text-align: center;
+  }
+  
+  .alumni-card__social-link {
+    text-decoration: none;
+    color: inherit;
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    gap:30px;
+  }
+  
+  .alumni-card__social-avatar img{
+  object-fit: cover;
+  border-radius: 50%;
+  border: 3px solid #FFFFFF; 
+  box-sizing: border-box;
+  
+  }
+  
+  .alumni-card__social-avatar {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  padding: 10px 28px;
+  gap: 10px;
+  
+  
+  
+  width: 144px;
+      height: 144px;
+      border-radius: 50%;
+      
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      
+      background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888);
+      
+      padding: 3px; 
+      
+      position: relative;
+  }
+  
+  .alumni-card__social-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  
+  .alumni-card__social-title {
+    font-size: 14px;
+    line-height: 1.4;
+    font-weight: 500;
+    color: #1f2d3d;
+  }
+  
+  .alumni-card__video-placeholder {
+    width: 100%;
+    aspect-ratio: 275 / 154;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #ddd;
+    color: #666;
+    font-size: 14px;
+  }
+  
+  .alumni-page .content-sections {
+    margin-top: 80px;   
+    margin-bottom: 80px;
+  }
+  
+  
+  
+  .alumni-page .category-nav {
+    width: 274px;
+    position: sticky;
+    top: 80px;        
+    align-self: flex-start;
+  }
+  
+  .alumni-page .category-nav__list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+  
+  .alumni-page .category-nav__link {
+    display: block;
+    text-decoration: none;
+    color: #1f2d3d;
+    font-size: 14px;
+    font-weight: 500;
+    padding: 4px 0;
+    border-radius: 0;
+  }
+  
+  .alumni-page .category-nav__link.is-active {
+    color: #32BAF6;
+    font-weight: 600;
+  }
+  
+  .alumni-page .category-nav__link:hover {
+    background: transparent;
+    color: #32BAF6;
+  }
+  
+  .alumni-page .content-sections__main {
+    width: 873px;
+  }
+  
+  .alumni-page .alumni-category-block {
+    margin: 0 0 80px;
+  }
+  
+  .alumni-page .category-title {
+    margin: 0 0 16px;
+    font-size: 20px;
+    font-weight: 700;
+    color: #1f2d3d;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  
+  .alumni-page .category-title i {
+    color: #32BAF6;
+  }
+  
+  .alumni-page .alumni-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 16px;
+  }
+  
+  .alumni-page .alumni-card {
+    border-radius: 8px;
+  }
+  
+  @media (max-width: 1200px) {
+    .alumni-page .content-sections__layout {
+      grid-template-columns: 260px minmax(0, 1fr);
+      justify-content: stretch;
+      padding: 0 24px;
+    }
+  
+    .alumni-page .content-sections__main {
+      width: auto;
+    }
+  }
+  
+  @media (max-width: 900px) {
+    .alumni-page .content-sections__layout {
+      grid-template-columns: minmax(0, 1fr);
+      row-gap: 24px;
+    }
+  
+    .alumni-page .category-nav {
+      width: auto;
+    }
+  
+    .alumni-page .alumni-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  }
+  
+  @media (max-width: 560px) {
+    .alumni-page .alumni-grid {
+      grid-template-columns: minmax(0, 1fr);
+    }
+  }
+  
+  .staff-card__media {
+    position: relative;
+    display: block;
+  }
+  
+  .staff-card__image {
+    width: 100%;
+    display: block;
+    object-fit: cover;
+  }
+  
+  .staff-card--image .staff-card__image,
+  .staff-card--video .staff-card__image {
+    aspect-ratio: 275 / 154;
+  }
+  
+  .staff-card__title {
+    margin: 12px 0 0;
+    font-size: 16px;
+    line-height: 1.35;
+    font-weight: 600;
+    color: #1f2d3d;
+  }
+  
+  .staff-card__play {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 44px;
+    color: rgba(255, 255, 255, 0.95);
+  }
+  
+  .staff-card__media--video {
+    text-decoration: none;
+    color: inherit;
+    cursor: pointer;
+  }
+  
+  .staff-card--social {
+    text-align: center;
+  }
+  
+  .staff-card__social-link {
+    text-decoration: none;
+    color: inherit;
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .staff-card__social-avatar {
+    width: 88px;
+    height: 88px;
+    border-radius: 50%;
+    overflow: hidden;
+    margin: 0 auto 12px;
+  }
+  
+  .staff-card__social-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  
+  .staff-card__social-title {
+    font-size: 14px;
+    line-height: 1.4;
+    font-weight: 500;
+    color: #1f2d3d;
+  }
+  
+  .staff-card__video-placeholder {
+    width: 100%;
+    aspect-ratio: 275 / 154;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #ddd;
+    color: #666;
+    font-size: 14px;
+  }
+  
+  .staff-page .content-sections {
+    margin-top: 80px;
+    margin-bottom: 80px;
+  }
+  
+  .staff-page .content-sections__layout {
+    display: grid;
+    grid-template-columns: 274px minmax(0, 873px);
+    justify-content: center;
+    column-gap: 80px;
+    align-items: start;
+  }
+  
+  .staff-page .category-nav {
+    width: 274px;
+    position: sticky;
+    top: 80px;
+    align-self: flex-start;
+  }
+  
+  .staff-page .category-nav__list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+  
+  .staff-page .category-nav__link {
+    display: block;
+    text-decoration: none;
+    color: #1f2d3d;
+    font-size: 14px;
+    font-weight: 500;
+    padding: 4px 0;
+    border-radius: 0;
+  }
+  
+  .staff-page .content-sections__main {
+    width: 873px;
+  }
+  
+  .staff-page .staff-category-block {
+    margin: 0 0 80px;
+  }
+  
+  .staff-page .category-title {
+    margin: 0 0 16px;
+    font-size: 20px;
+    font-weight: 700;
+    color: #1f2d3d;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  
+  .staff-page .category-title i {
+    color: #32BAF6;
+  }
+  
+  .staff-page .staff-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 16px;
+  }
+  
+  .staff-page .staff-card {
+    border-radius: 8px;
+  }
+  
+  @media (max-width: 1200px) {
+    .staff-page .content-sections__layout {
+      grid-template-columns: 260px minmax(0, 1fr);
+      justify-content: stretch;
+      padding: 0 24px;
+    }
+  
+    .staff-page .content-sections__main {
+      width: auto;
+    }
+  }
+  
+  @media (max-width: 900px) {
+    .staff-page .content-sections__layout {
+      grid-template-columns: minmax(0, 1fr);
+      row-gap: 24px;
+    }
+  
+    .staff-page .category-nav {
+      width: auto;
+    }
+  
+    .staff-page .staff-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  }
+  
+  @media (max-width: 560px) {
+    .staff-page .staff-grid {
+      grid-template-columns: minmax(0, 1fr);
+    }
+  }
+  .category-sidebar {
+    display: flex;
+    flex-direction: column;
+    gap: 40px; 
+  }
+  .alumni-card__media--video {
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+    aspect-ratio: 16 / 9; 
+  }
+  
+  .alumni-card__play {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: transparent;
+    border: none;
+    color: #fff;
+    font-size: 50px;
+    z-index: 10;
+  }
+  
+  .alumni-card__image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  .alumni-card alumni-card--social{
+  /* Borders */
+  
+  position: absolute;
+  width: 816px;
+  height: 378px;
+  left: 28px;
+  top: 82px;
+  
+  flex: none;
+  order: 3;
+  flex-grow: 0;
+  z-index: 3;
+  }
+
+
+/*-------------------------------BANNER SECTION------------------------------*/
 .cta-banner {
     position: relative;
     min-height: 560px;
@@ -197,13 +716,6 @@ flex-grow: 0;
     overflow: hidden; 
     box-sizing: border-box;
   }
-  
-  /* .cta-banner__overlay {
-    position: absolute;
-    inset: 0;
-    background: rgba(5, 13, 26, 0.70);
-  } */
-  
   .cta-banner__inner {
     position: relative;
     z-index: 2;
@@ -213,137 +725,32 @@ flex-grow: 0;
     justify-content: center;
     padding: 40px 20px;
   }
-  
-  .cta-banner__content {
-    width: 100%;
-    max-width: 1000px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 24px;
-    text-align: center;
-    margin: 0 auto;
-  }
-  
   .cta-banner__title {
-    margin: 0 auto;
-    max-width: 838px;
-    height: 80px;
-    color: #ffffff;
-    font-family: "Nexa Heavy", Arial, sans-serif;
-    font-size: 80px;
-    font-weight: 900;
-    line-height: 1;
-    letter-spacing: 0;
-    text-align: center;
+   padding-top: 124px;
+   margin: 0;
   }
   
-  .cta-hero_text {
-    /* margin: 0 auto;
-    width: 100%;
-    max-width: 1000px;
-    color: #ffffff;
-    font-family: "Nexa Bold", Arial, sans-serif;
+  .cta-banner__text {
     font-size: 20px;
     font-weight: 700;
     line-height: 40px;
-    letter-spacing: 0;
-    text-align: center; */
-
-    /* The 10/07 atrocities perpetrated by the Hamas terrorist organization against innocent Jews and Israelis are acts of pure evil and unadulterated barbarism - wholly set apart from any form of human conduct. Birthright Israel calls to action each and all of its 850,000 alumni to stand unified and have their voices clearly heard worldwide and on every platform. We encourage you to learn more about the Israel/Hamas war and be as vocal as possible with us. */
-
-width: 1000px;
-height: 200px;
-
-font-family: 'Nexa Bold';
-font-style: normal;
-font-weight: 700;
-font-size: 20px;
-line-height: 40px;
-/* or 200% */
-text-align: center;
-text-transform: capitalize;
-
-color: #FFFFFF;
-
-
-/* Inside auto layout */
-flex: none;
-order: 1;
-flex-grow: 0;
-
+    color: var(--white);
+    margin-bottom: 40px;
+    max-width: 900px;
+    margin-top: 40px;
   }
-  
-  .cta-banner__actions {
-    flex-direction: row;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 24px;
-    min-height: 56px;
-    flex-wrap: wrap;
-  }
-  
-  /* .cta-banner__socials {
-    display: flex;
-    align-items: center;
-    gap: 20px;                
-} */
-  
   .cta__share-label {
-    /* margin: 0;
-    color: #ffffff;
-    font-size: 20px;
-    font-weight: 400;
-    line-height: 1; */
-    /* Share on */
-
-width: 110px;
-height: 40px;
-
-font-family: 'Nexa Bold';
-font-style: normal;
-font-weight: 700;
-font-size: 24px;
-line-height: 40px;
-/* identical to box height, or 167% */
-text-align: center;
-text-transform: capitalize;
-
-color: #FFFFFF;
-
-
-/* Inside auto layout */
-flex: none;
-order: 0;
-flex-grow: 0;
-
-  }
-  .cta-social__social-links{
-/* Social buttons */
-
-/* Auto layout */
-display: flex;
-flex-direction: row;
-align-items: flex-start;
-padding: 0px;
-gap: 16px;
-
-width: 272px;
-height: 56px;
-
-
-/* Inside auto layout */
-flex: none;
-order: 1;
-flex-grow: 0;
-
-  }
-  .cta-banner__or {
     color: #ffffff;
     font-size: 20px;
     font-weight: 400;
     line-height: 1;
+  }
+ 
+  .cta-banner__or,.cta__share-label {
+    color: var(--white);
+    font-size: 24px;
+    font-weight: 700;
+    line-height: 40px;
   }
   
   .cta-banner .social-icons {
@@ -370,28 +777,6 @@ flex-grow: 0;
 
     
 }
-.cta-banner__social-links  a  {
-  width: 56px;
-  height: auto;
-  line-height: 1;
-  letter-spacing: 0;
-  text-transform: capitalize;
-}
-
-.cta-banner__social-links  a i {
-width: 28px;
-height: 32px;
-font-family: 'Font Awesome 6 Brands';
-font-style: normal;
-font-weight: 400;
-font-size: 32px;
-line-height: 32px;
-text-transform: capitalize;
-flex: none;
-order: 0;
-flex-grow: 0;
-}
-
 
   .cta-banner__button {
     display: inline-flex;
@@ -409,560 +794,7 @@ flex-grow: 0;
     text-transform: uppercase;
     white-space: nowrap;
   }
-  
-  .cta-banner__button:hover {
-    color: #ffffff;
-    text-decoration: none;
-  }
-  
-  .cta-banner .fa-instagram {
-    color: #ff4fa3;
-  }
-  
-  .cta-banner .fa-facebook-f {
-    color: rgb(24, 119, 242);
-  }
-  
-  .cta-banner .fa-whatsapp {
-    color: #25d366;
-  }
-  
-  .cta-banner .fa-telegram-plane {
-    color: #2aabee;
-  }
-  
-  @media (max-width: 1440px) {
-    .cta-banner__title {
-      font-size: 64px;
-      max-width: 760px;
-    }
-  }
-  
-  @media (max-width: 1366px) {
-    .cta-banner__title {
-      font-size: 58px;
-    }
-  }
-  
-  @media (max-width: 767px) {
-    .cta-banner {
-      min-height: 420px;
-    }
-  
-    .cta-banner__inner {
-      min-height: 420px;
-      padding: 32px 20px;
-    }
-  
-    .cta-banner__content {
-      max-width: 100%;
-    }
-  
-    .cta-banner__title {
-      font-size: 40px;
-      max-width: 100%;
-    }
-  
-    .cta-banner__text {
-      font-size: 16px;
-      line-height: 28px;
-      max-width: 100%;
-    }
-  
-    .cta-banner__actions {
-      flex-direction: column;
-      gap: 16px;
-    }
-    .cta-banner__socials {
-      display: flex;
-      align-items: center;
-      gap: 20px;                
-  }
-  }
 
-  /* Alumni */
-  .alumni-card__media {
-  position: relative;
-  display: block;
-}
-
-.alumni-card__media--video {
-  text-decoration: none;
-  color: inherit;
-  cursor: pointer;
-}
-
-.alumni-card__image {
-  width: 100%;
-  display: block;
-  object-fit: cover;
-}
-
-.alumni-card--image .alumni-card__image,
-.alumni-card--video .alumni-card__image {
-  aspect-ratio: 275 / 154;
-}
-
-.alumni-card__title {
-  margin: 12px 0 0;
-  font-size: 16px;
-  line-height: 1.35;
-  font-weight: 600;
-  color: #1f2d3d;
-}
-
-.alumni-card__play {
-  position: absolute;
-  inset: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 44px;
-  color: rgba(255, 255, 255, 0.95);
-}
-
-.alumni-card--social {
-  text-align: center;
-}
-
-.alumni-card__social-link {
-  text-decoration: none;
-  color: inherit;
-  display: inline-flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.alumni-card__social-avatar img{
-object-fit: cover;
-border-radius: 50%;
-border: 3px solid #FFFFFF; 
-box-sizing: border-box;
-
-}
-
-.alumni-card__social-avatar {
-display: flex;
-flex-direction: row;
-align-items: flex-start;
-padding: 10px 28px;
-gap: 10px;
-
-
-
-width: 144px;
-    height: 144px;
-    border-radius: 50%;
-    
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    
-    background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888);
-    
-    padding: 3px; 
-    
-    position: relative;
-
-    
-
-}
-
-.alumni-card__social-image {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-.alumni-card__social-title {
-  margin: 0;
-  font-size: 14px;
-  line-height: 1.4;
-  font-weight: 500;
-  color: #1f2d3d;
-}
-
-.alumni-card__video-placeholder {
-  width: 100%;
-  aspect-ratio: 275 / 154;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: #ddd;
-  color: #666;
-  font-size: 14px;
-}
-
-.alumni-page .content-sections {
-  margin-top: 80px;   
-  margin-bottom: 80px;
-}
-
-.alumni-page .content-sections__layout {
-  display: grid;
-  grid-template-columns: 274px minmax(0, 873px);
-  justify-content: center;
-  column-gap: 80px;
-  align-items: start;
-}
-
-.alumni-page .category-nav {
-  width: 274px;
-  position: sticky;
-  top: 80px;        
-  align-self: flex-start;
-}
-
-.alumni-page .category-nav__list {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-}
-
-.alumni-page .category-nav__link {
-  display: block;
-  text-decoration: none;
-  color: #1f2d3d;
-  font-size: 14px;
-  font-weight: 500;
-  padding: 4px 0;
-  border-radius: 0;
-}
-
-.alumni-page .category-nav__link.is-active {
-  color: #32BAF6;
-  font-weight: 600;
-}
-
-.alumni-page .category-nav__link:hover {
-  background: transparent;
-  color: #32BAF6;
-}
-
-.alumni-page .content-sections__main {
-  width: 873px;
-}
-
-.alumni-page .alumni-category-block {
-  margin: 0 0 80px;
-}
-
-.alumni-page .category-title {
-  margin: 0 0 16px;
-  font-size: 20px;
-  font-weight: 700;
-  color: #1f2d3d;
-  display: flex;
-  align-items: center;
-  gap: 8px;
-}
-
-.alumni-page .category-title i {
-  color: #32BAF6;
-}
-
-.alumni-page .alumni-grid {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 16px;
-}
-
-.alumni-page .alumni-card {
-  border-radius: 8px;
-}
-
-@media (max-width: 1200px) {
-  .alumni-page .content-sections__layout {
-    grid-template-columns: 260px minmax(0, 1fr);
-    justify-content: stretch;
-    padding: 0 24px;
-  }
-
-  .alumni-page .content-sections__main {
-    width: auto;
-  }
-}
-
-@media (max-width: 900px) {
-  .alumni-page .content-sections__layout {
-    grid-template-columns: minmax(0, 1fr);
-    row-gap: 24px;
-  }
-
-  .alumni-page .category-nav {
-    width: auto;
-  }
-
-  .alumni-page .alumni-grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-}
-
-@media (max-width: 560px) {
-  .alumni-page .alumni-grid {
-    grid-template-columns: minmax(0, 1fr);
-  }
-}
-
-.staff-card__media {
-  position: relative;
-  display: block;
-}
-
-.staff-card__image {
-  width: 100%;
-  display: block;
-  object-fit: cover;
-}
-
-.staff-card--image .staff-card__image,
-.staff-card--video .staff-card__image {
-  aspect-ratio: 275 / 154;
-}
-
-.staff-card__title {
-  margin: 12px 0 0;
-  font-size: 16px;
-  line-height: 1.35;
-  font-weight: 600;
-  color: #1f2d3d;
-}
-
-.staff-card__play {
-  position: absolute;
-  inset: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 44px;
-  color: rgba(255, 255, 255, 0.95);
-}
-
-.staff-card__media--video {
-  text-decoration: none;
-  color: inherit;
-  cursor: pointer;
-}
-
-.staff-card--social {
-  text-align: center;
-}
-
-.staff-card__social-link {
-  text-decoration: none;
-  color: inherit;
-  display: inline-flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.staff-card__social-avatar {
-  width: 88px;
-  height: 88px;
-  border-radius: 50%;
-  overflow: hidden;
-  margin: 0 auto 12px;
-}
-
-.staff-card__social-image {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-.staff-card__social-title {
-  margin: 0;
-  font-size: 14px;
-  line-height: 1.4;
-  font-weight: 500;
-  color: #1f2d3d;
-}
-
-.staff-card__video-placeholder {
-  width: 100%;
-  aspect-ratio: 275 / 154;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: #ddd;
-  color: #666;
-  font-size: 14px;
-}
-
-.staff-page .content-sections {
-  margin-top: 80px;
-  margin-bottom: 80px;
-}
-
-.staff-page .content-sections__layout {
-  display: grid;
-  grid-template-columns: 274px minmax(0, 873px);
-  justify-content: center;
-  column-gap: 80px;
-  align-items: start;
-}
-
-.staff-page .category-nav {
-  width: 274px;
-  position: sticky;
-  top: 80px;
-  align-self: flex-start;
-}
-
-.staff-page .category-nav__list {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-}
-
-.staff-page .category-nav__link {
-  display: block;
-  text-decoration: none;
-  color: #1f2d3d;
-  font-size: 14px;
-  font-weight: 500;
-  padding: 4px 0;
-  border-radius: 0;
-}
-
-.staff-page .content-sections__main {
-  width: 873px;
-}
-
-.staff-page .staff-category-block {
-  margin: 0 0 80px;
-}
-
-.staff-page .category-title {
-  margin: 0 0 16px;
-  font-size: 20px;
-  font-weight: 700;
-  color: #1f2d3d;
-  display: flex;
-  align-items: center;
-  gap: 8px;
-}
-
-.staff-page .category-title i {
-  color: #32BAF6;
-}
-
-.staff-page .staff-grid {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 16px;
-}
-
-.staff-page .staff-card {
-  border-radius: 8px;
-}
-
-@media (max-width: 1200px) {
-  .staff-page .content-sections__layout {
-    grid-template-columns: 260px minmax(0, 1fr);
-    justify-content: stretch;
-    padding: 0 24px;
-  }
-
-  .staff-page .content-sections__main {
-    width: auto;
-  }
-}
-
-@media (max-width: 900px) {
-  .staff-page .content-sections__layout {
-    grid-template-columns: minmax(0, 1fr);
-    row-gap: 24px;
-  }
-
-  .staff-page .category-nav {
-    width: auto;
-  }
-
-  .staff-page .staff-grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-}
-
-@media (max-width: 560px) {
-  .staff-page .staff-grid {
-    grid-template-columns: minmax(0, 1fr);
-  }
-}
-.category-sidebar {
-  display: flex;
-  flex-direction: column;
-  gap: 40px; 
-}
-.alumni-card__media--video {
-  position: relative;
-  overflow: hidden;
-  cursor: pointer;
-  aspect-ratio: 16 / 9; 
-}
-
-.alumni-card__play {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  background: transparent;
-  border: none;
-  color: #fff;
-  font-size: 50px;
-  z-index: 10;
-}
-
-.alumni-card__image {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-.alumni-card alumni-card--social{
-/* Borders */
-
-position: absolute;
-width: 816px;
-height: 378px;
-left: 28px;
-top: 82px;
-
-flex: none;
-order: 3;
-flex-grow: 0;
-z-index: 3;
-}
-/*קישורים מעל ההידר*/
-.top-links-bar{
-  background:#0F1935;
-  height: 64px;
-  padding-left:35px;
-  display: flex;
-  align-items: center;
-  
-}
-
-.top-links-list{
-  display:flex;
-  list-style:none;
-  gap:40px;
-  margin:0;
-  padding:10px 40px;
-  
-}
-
-.top-links-list a{
-  font-family: 'Nexa', sans-serif;
-  color:white;
-  text-decoration:none;
-  font-size:16px;
-}
 /**/
 .category-nav__link.is-active {
   color: #32BAF6 !important;
@@ -972,7 +804,7 @@ z-index: 3;
 .category-nav__link:hover {
   color: #32BAF6;
 }
-
+/*---------------------------------FOOTER SECTION--------------------------------*/
 .site-footer {
   border-top: 1px solid #E5E5E5;
   background-color: #FFFFFF !important;
@@ -987,8 +819,6 @@ z-index: 3;
 }
 
 .footer-links-column {
-  margin: 0;
-  padding: 0;
   min-width: 150px; 
 }
 
@@ -1044,109 +874,89 @@ z-index: 3;
   height: auto;
   transition: transform 0.3s ease;
 }
-/* ניהול השכבות של ההירו */
-.hero-section {
-  position: relative;
-  width: 100%;
-  height: 760px; /* גובה מדויק מפיגמה */
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  overflow: hidden;
-  gap:72px
-}
+/*--------------------------------------------------finish----------------------------------------------*/
 
-
-   .hero-bg-texture {
-    position: absolute;
-    inset: 0;
-    background-image: url('assets/images/black-dark-bcg.jpg'); /* הנתיב המתוקן */
-    background-size: cover;
-    background-position: center;
-    z-index: 1;
-}
-
-.hero-flag-layer {
-    position: absolute;
-    inset: 0;
-    background-size: cover;
-    background-position: left center;
-    background-repeat: no-repeat;
-    opacity: 0.6; 
-    mix-blend-mode: luminosity; 
-    z-index: 2;
-}
-
-.cta-banner__overlay {
-  position: absolute;
-  inset: 0;
-  background: rgba(5, 13, 26, 0.7); 
-  z-index: 3;
-}
-
-.cta-banner__inner {
-  position: relative;
-  z-index: 10;
-  width: 100%;
-}
-
-.cta-banner__title {
-  font-family: 'Nexa Heavy', sans-serif;
-  font-size: 70px;
-  font-weight: 900;
+.cta-banner__social-links  a  {
+  width: 56px;
+  height: auto;
   line-height: 1;
+  letter-spacing: 0;
+  text-transform: capitalize;
+}
+
+.cta-banner__social-links  a i {
+width: 28px;
+height: 32px;
+font-family: 'Font Awesome 6 Brands';
+font-style: normal;
+font-weight: 400;
+font-size: 32px;
+line-height: 32px;
+text-transform: capitalize;
+flex: none;
+order: 0;
+flex-grow: 0;
+}
+
+.btn-support-now {
+  display: inline-block;
+  padding: 16px 36px; 
+  background-color: #0047BB; 
   color: #FFFFFF;
-  margin-bottom: 24px;
+  text-decoration: none;
+  font-size: 16px;
+  font-weight: 700;
+  border-radius: 999px; 
   text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-top: 40px; 
 }
 
-.cta-banner__text {
-  font-size: 20px;
-  line-height: 1.4;
-  color: #FFFFFF;
-  margin-bottom: 40px;
-  max-width: 838px;
-  margin-left: auto;
-  margin-right: auto;
+@media (max-width: 1440px) {
+  .cta-banner__title {
+    font-size: 64px;
+    max-width: 760px;
+  }
 }
-.heading-paragraph{
-  /* Heading + paragraph */
 
-/* Auto layout */
-display: flex;
-flex-direction: column;
-align-items: center;
-padding: 0px;
-gap: 24px;
-
-width: 1000px;
-height: 304px;
-
-
-/* Inside auto layout */
-flex: none;
-flex-grow: 0;
-z-index: 2;
-
+@media (max-width: 1366px) {
+  .cta-banner__title {
+    font-size: 58px;
+  }
 }
-.cta-social-links{
-  /* Social links */
 
-/* Auto layout */
-display: flex;
-flex-direction: row;
-align-items: center;
-padding: 0px;
-gap: 24px;
+@media (max-width: 767px) {
+  .cta-banner {
+    min-height: 420px;
+  }
 
-width: 740px;
-height: 56px;
+  .cta-banner__inner {
+    min-height: 420px;
+    padding: 32px 20px;
+  }
 
+  .cta-banner__content {
+    max-width: 100%;
+  }
 
-/* Inside auto layout */
-flex: none;
-order: 3;
-flex-grow: 0;
-z-index: 3;
+  .cta-banner__title {
+    font-size: 40px;
+    max-width: 100%;
+  }
 
+  .cta-banner__text {
+    font-size: 16px;
+    line-height: 28px;
+    max-width: 100%;
+  }
+
+  .cta-banner__actions {
+    flex-direction: column;
+    gap: 16px;
+  }
+  .cta-banner__socials {
+    display: flex;
+    align-items: center;
+    gap: 20px;                
+}
 }

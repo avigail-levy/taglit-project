@@ -30,7 +30,7 @@
         ?>
     </div>
 
-    <nav class="header-menu-links">
+    <nav class="header-menu-links list-no-padding">
         <?php 
         wp_nav_menu(array(
             'theme_location' => 'main_menu',
@@ -40,10 +40,9 @@
         ?>
     </nav>
 
-    <div class="link">
+    <div class="btn_login">
         <?php 
         $front_id = get_option('page_on_front');
-        
         $header_button = get_field('header_button', $front_id) ?: get_field('header_button', 'option');
 
         if ( $header_button ) : 
@@ -52,7 +51,7 @@
             $button_target = $header_button['target'] ? $header_button['target'] : '_self';
             ?>
             <a href="<?php echo esc_url($button_url); ?>" 
-               class="login-btn" 
+               class="link-login" 
                target="<?php echo esc_attr($button_target); ?>">
                 <?php echo esc_html($button_title); ?>
             </a>

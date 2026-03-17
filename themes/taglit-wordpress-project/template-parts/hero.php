@@ -25,14 +25,14 @@ $logo_url = is_array($logo) ? $logo['url'] : $logo;
     <div class="hero-bg-texture" style="background-image: url('<?php echo esc_url($bg_url); ?>');"></div>
     
     <div class="hero-flag-layer" style="background-image: url('<?php echo get_template_directory_uri(); ?>/assets/images/flag-israel-bcg.jpg');"></div>    
-    <div class="cta-banner__overlay"></div>
+    <div class="hero__overlay"></div>
 
-    <div class="cta-banner__inner container">
+    <div class="hero__inner container">
         <div class="cta-banner__content">
             
             <?php if($logo_url): ?>
-                <div class="cta-banner__logo" style="margin-bottom: 20px;">
-                    <img src="<?php echo esc_url($logo_url); ?>" alt="Hero Logo" style="width: 331.49px; height: 80px;">
+                <div class="cta-banner__logo">
+                    <img src="<?php echo esc_url($logo_url); ?>" alt="Hero Logo">
                 </div>
             <?php endif; ?>
         <div class="heading-paragraph">  
@@ -56,12 +56,7 @@ $logo_url = is_array($logo) ? $logo['url'] : $logo;
                     ]); 
                     ?>
 
-                    <?php if ($btn_url && $btn_text): ?>
-                        <a class="cta-banner__button" href="<?php echo esc_url($btn_url); ?>
-                        " target="<?php echo esc_attr($btn_target); ?>" rel="noopener noreferrer">
-                            <?php echo esc_html($btn_text); ?>
-                        </a>
-                    <?php endif; ?>
+                    
 
                 </div>
             <?php endif; ?>
