@@ -25,10 +25,10 @@ if ($banner_link && is_array($banner_link)) {
     <div class="banner__overlay"></div>
     <div class="banner__inner container">
         <div class="cta-banner__content">
-
+            <div class="banner-title-text">
             <?php if ($banner_title): ?><h2 class="cta-banner__title"><?php echo esc_html($banner_title); ?></h2><?php endif; ?>
             <?php if ($banner_text): ?><p class="cta-banner__text"><?php echo esc_html($banner_text); ?></p><?php endif; ?>
-
+                </div>
             <?php if (!empty($selected_socials) || ($btn_url && $btn_text)) : ?>
                 <div class="cta-banner__actions">
 

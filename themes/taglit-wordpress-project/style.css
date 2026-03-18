@@ -9,18 +9,19 @@ ol, ul,h1,p {
   margin: 0;
   }
 * {
-  margin: 0;
+   margin: 0 ;
   padding: 0;
   box-sizing: border-box; 
 }
+
 html {
   font-size: 16px; 
 }
 
 html body {
   font-family: 'Nexa', sans-serif;
-  font-size: 1rem; /* כלומר 16px כברירת מחדל לכל האתר */
-  line-height: 1.5; /* מומלץ להוסיף לקריאות */
+  font-size: 1rem; 
+  line-height: 1.5; 
   color:#172336;
   align-items: center;
   justify-content: center;
@@ -31,11 +32,18 @@ html body {
   --primary-blue: #0F1935;
   --action-blue: #00AEEF;
   --white: #ffffff;
+  --gradient-social: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888);
+  --gray:#6F6F6F;
+
   /* גדלים */
+    --size-xs: 0.875rem; /*14*/
+    --size-s: 1rem;   /*16*/   
+    --size-m: 1.25rem; /*20*/  
+    --size-l: 1.5rem;   /*24*/ 
+    --size-xl: 2.5rem; /*40*/  
+    --size-xxl: 5rem;/*80*/
 
-
-  /* פונטים - כאן אנחנו מגדירים את שם הפונט כמשתנה */
-  --main-font: 'Nexa', sans-serif;
+    --main-font: 'Nexa', sans-serif;
 }
 @font-face {
   font-family: 'Nexa';
@@ -49,7 +57,6 @@ html body {
   font-weight: 900;
 }
 /*--------------------------------HEADER SECTION--------------------------------*/
-/*קישורים מעל ההידר*/
 .top-links-bar{
   background:var(--primary-blue);
   display: flex;
@@ -62,14 +69,12 @@ html body {
   display:flex;
   gap:40px;
   margin: 0;
-  /* padding:10px 40px; */
 }
 
 .top-links-list a{
-  font-family: 'Nexa', sans-serif;
+   font-weight: 700;
   color:white;
   text-decoration:none;
-  font-size:16px;
 }
 
 .site-header * {
@@ -104,7 +109,7 @@ html body {
 .main-menu-list li a {
     text-decoration: none;
     color: #4A4A4A;
-    font-size: 14px;
+    font-size: var(--size-xs);
     font-weight: 700;
     letter-spacing: 1.3px;
 }
@@ -113,9 +118,8 @@ html body {
     max-width: 160px; 
     display: flex;
     align-items: center;
-flex-direction: column;
-padding: 18px 0px;
-gap: 10px;
+    flex-direction: column;
+    gap: 10px;
 
 }
 
@@ -127,32 +131,31 @@ gap: 10px;
 .btn_login {
     max-width: 93px; 
     display: flex;
-justify-content: center;
-align-items: center;
-padding: 31px 24px;
-gap: 10px;
-background: var(--white);
-
-
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    background: var(--white);
 }
 
 .link-login {
     color: var(--primary-blue);
     text-decoration: none;
-    font-size: 14px;
+    font-size: var(--size-xs);
     font-weight: 700;
 }
 /*-------------------------------------HERO SECTION------------------------------- */
+
 .hero-section {
   position: relative;
   width: 100%;
-  display: flex;
+ /* display: flex;*/
   overflow: hidden;
 }
+
 .hero-bg-texture {
   position: absolute;
   inset: 0;
-  background-image: url('assets/images/black-dark-bcg.jpg'); /* הנתיב המתוקן */
+  background-image: url('assets/images/black-dark-bcg.jpg'); 
   background-size: cover;
   background-position: center;
   z-index: 1;
@@ -175,24 +178,25 @@ background: var(--white);
   top: 0;
   bottom: 0;
   left: 0;
-  width: 50%; /* תופס חצי מסך שמאלי */
+  width: 50%; 
+  height: 100%;
   
-  background-size: 150%; /* עושים זום כדי שיהיה מה להזיז */
-  background-position: 90% center; /* דוחף את התמונה ימינה בתוך הדיב */
+  background-size: cover; 
+  background-position: 80% center; 
   background-repeat: no-repeat;
   
-  /* המסיכה שדואגת למעבר החלק לשחור */
   -webkit-mask-image: linear-gradient(to right, black 10%, transparent 90%);
   mask-image: linear-gradient(to right, black 10%, transparent 90%);
-  /* פחות זוהר, צבעים עדיין חזקים */
-  filter: saturate(1.4) contrast(1.1) brightness(0.8);
+  filter: saturate(1.4) contrast(1.1) brightness(0.5);
   z-index: 2;
   mix-blend-mode: normal;
 }
+
+
 .cta-banner__logo{
 padding-top: 88px;
 }
-.cta-banner__content {
+.cta-hero__content {
   width: 100%;
   max-width: 1000px;
   display: flex;
@@ -200,6 +204,7 @@ padding-top: 88px;
   align-items: center;
   text-align: center;
   margin:  auto;
+  gap: 72px;
 }
 .heading-paragraph{
   display: flex;
@@ -213,17 +218,16 @@ padding-top: 88px;
 
 .swords-of-iron_title, .cta-banner__title {
 font-weight: 900;
-font-size: 80px;
+font-size: var(--size-xxl);
 line-height: 100%;
 text-align: center;
-padding-top:72px;
 color: var(--white);
 }
 .cta-hero_text {
   max-width: 1000px;
   font-style: normal;
   font-weight: 700;
-  font-size: 20px;
+  font-size: var(--size-m);
   line-height: 40px;
   text-align: center;
   text-transform: capitalize;
@@ -238,19 +242,20 @@ color: var(--white);
     gap: 24px;
     min-height: 56px;
     flex-wrap: wrap;
+    padding-bottom: 65px;
   }
   .cta-social-links{
     display: flex;
     align-items: center;
     gap: 24px;
-    margin: 65px;
+   
     flex-wrap: wrap;
     justify-content: center;
     
     } 
 /*---------------------------posts + categories--------------------------------*/
 
-.alumni-page .content-sections__layout {
+.container .content-sections__layout {
   display: grid;
   grid-template-columns: 274px minmax(0, 873px);
   justify-content: center;
@@ -258,21 +263,25 @@ color: var(--white);
   align-items: start;
   padding-top: 100px;
 }
+#post-97 {
+    grid-column: span 3; 
+    width: 100%;
+}
+
+#post-97 .alumni-card__image {
+    aspect-ratio: auto; 
+    width: 100%;
+    max-height: 450px; 
+    object-fit: cover;
+}
   .alumni-card__media {
     position: relative;
     display: block;
   }
-  
   .alumni-card__media--video {
     text-decoration: none;
     color: inherit;
     cursor: pointer;
-  }
-  
-  .alumni-card__image {
-    width: 100%;
-    display: block;
-    object-fit: cover;
   }
   
   .alumni-card-image .alumni-card__image,
@@ -281,21 +290,22 @@ color: var(--white);
   }
   
   .alumni-card__title {
+    font-size: var(--size-s);
     margin: 12px 0 0;
-    font-size: 16px;
     line-height: 1.35;
     font-weight: 600;
     color: #1f2d3d;
   }
-  
   .alumni-card__play {
     position: absolute;
-    inset: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 44px;
-    color: rgba(255, 255, 255, 0.95);
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: transparent;
+    border: none;
+    color: #fff;
+    font-size: 50px;
+    z-index: 10;
   }
   
   .alumni-card--social {
@@ -325,21 +335,14 @@ color: var(--white);
   align-items: flex-start;
   padding: 10px 28px;
   gap: 10px;
-  
-  
-  
   width: 144px;
       height: 144px;
       border-radius: 50%;
       
-      display: flex;
       align-items: center;
       justify-content: center;
-      
-      background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888);
-      
+      background: var(--gradient-social);
       padding: 3px; 
-      
       position: relative;
   }
   
@@ -350,7 +353,7 @@ color: var(--white);
   }
   
   .alumni-card__social-title {
-    font-size: 14px;
+    font-size: var(--size-xs);
     line-height: 1.4;
     font-weight: 500;
     color: #1f2d3d;
@@ -364,61 +367,57 @@ color: var(--white);
     justify-content: center;
     background: #ddd;
     color: #666;
-    font-size: 14px;
+    font-size: var(--size-xs);
   }
   
-  .alumni-page .content-sections {
+  .content-sections {
     margin-top: 80px;   
     margin-bottom: 80px;
   }
   
-  
-  
-  .alumni-page .category-nav {
+  .category-nav {
     width: 274px;
     position: sticky;
     top: 80px;        
     align-self: flex-start;
   }
   
-  .alumni-page .category-nav__list {
+  .category-nav__list {
     list-style: none;
     display: flex;
     flex-direction: column;
-    gap: 12px;
   }
   
-  .alumni-page .category-nav__link {
-    display: block;
+  .category-nav__link {
+    display: flex;
     text-decoration: none;
-    color: #1f2d3d;
-    font-size: 14px;
-    font-weight: 500;
-    padding: 4px 0;
+    color: var(--gray);
+    font-size: var(--size-xs);
+    font-weight: 700;
+    padding:16px;
     border-radius: 0;
+    gap:10px;
+    
   }
   
-  .alumni-page .category-nav__link.is-active {
+  /* .category-nav__link.is-active {
     color: #32BAF6;
     font-weight: 600;
-  }
+  } */
   
-  .alumni-page .category-nav__link:hover {
+  .category-nav__link:hover {
     background: transparent;
     color: #32BAF6;
   }
   
-  .alumni-page .content-sections__main {
-    width: 873px;
-  }
-  
-  .alumni-page .alumni-category-block {
+  .alumni-category-block {
     margin: 0 0 80px;
   }
-  
-  .alumni-page .category-title {
+
+    
+  .category-title {
     margin: 0 0 16px;
-    font-size: 20px;
+    font-size: var(--size-m);
     font-weight: 700;
     color: #1f2d3d;
     display: flex;
@@ -426,238 +425,60 @@ color: var(--white);
     gap: 8px;
   }
   
-  .alumni-page .category-title i {
+  .category-title i {
     color: #32BAF6;
   }
   
-  .alumni-page .alumni-grid {
+  .alumni-grid {
     display: grid;
     grid-template-columns: repeat(3, minmax(0, 1fr));
     gap: 16px;
   }
   
-  .alumni-page .alumni-card {
+  .alumni-card {
     border-radius: 8px;
   }
   
-  @media (max-width: 1200px) {
-    .alumni-page .content-sections__layout {
-      grid-template-columns: 260px minmax(0, 1fr);
-      justify-content: stretch;
-      padding: 0 24px;
-    }
   
-    .alumni-page .content-sections__main {
-      width: auto;
-    }
-  }
-  
-  @media (max-width: 900px) {
-    .alumni-page .content-sections__layout {
-      grid-template-columns: minmax(0, 1fr);
-      row-gap: 24px;
-    }
-  
-    .alumni-page .category-nav {
-      width: auto;
-    }
-  
-    .alumni-page .alumni-grid {
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-    }
-  }
-  
-  @media (max-width: 560px) {
-    .alumni-page .alumni-grid {
-      grid-template-columns: minmax(0, 1fr);
-    }
-  }
-  
-  .staff-card__media {
-    position: relative;
-    display: block;
-  }
-  
-  .staff-card__image {
-    width: 100%;
-    display: block;
-    object-fit: cover;
-  }
-  
-  .staff-card--image .staff-card__image,
-  .staff-card--video .staff-card__image {
-    aspect-ratio: 275 / 154;
-  }
-  
-  .staff-card__title {
-    margin: 12px 0 0;
-    font-size: 16px;
-    line-height: 1.35;
-    font-weight: 600;
-    color: #1f2d3d;
-  }
-  
-  .staff-card__play {
-    position: absolute;
-    inset: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 44px;
-    color: rgba(255, 255, 255, 0.95);
-  }
-  
-  .staff-card__media--video {
-    text-decoration: none;
-    color: inherit;
-    cursor: pointer;
-  }
-  
-  .staff-card--social {
-    text-align: center;
-  }
-  
-  .staff-card__social-link {
-    text-decoration: none;
-    color: inherit;
-    display: inline-flex;
-    flex-direction: column;
-    align-items: center;
-  }
-  
-  .staff-card__social-avatar {
-    width: 88px;
-    height: 88px;
-    border-radius: 50%;
-    overflow: hidden;
-    margin: 0 auto 12px;
-  }
-  
-  .staff-card__social-image {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-  }
-  
-  .staff-card__social-title {
-    font-size: 14px;
-    line-height: 1.4;
-    font-weight: 500;
-    color: #1f2d3d;
-  }
-  
-  .staff-card__video-placeholder {
-    width: 100%;
-    aspect-ratio: 275 / 154;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: #ddd;
-    color: #666;
-    font-size: 14px;
-  }
-  
-  .staff-page .content-sections {
+  .content-sections {
     margin-top: 80px;
     margin-bottom: 80px;
   }
   
-  .staff-page .content-sections__layout {
+  .content-sections__layout {
     display: grid;
     grid-template-columns: 274px minmax(0, 873px);
     justify-content: center;
-    column-gap: 80px;
+    column-gap: var(--size-m);
     align-items: start;
+    padding-top: 100px;
   }
   
-  .staff-page .category-nav {
+  .category-nav {
     width: 274px;
     position: sticky;
     top: 80px;
     align-self: flex-start;
   }
   
-  .staff-page .category-nav__list {
+  .category-nav__list {
     list-style: none;
     display: flex;
     flex-direction: column;
-    gap: 12px;
+  }
+
+  .content-sections__main {
+    max-width: 873px;
+    gap:32px;
   }
   
-  .staff-page .category-nav__link {
-    display: block;
-    text-decoration: none;
-    color: #1f2d3d;
-    font-size: 14px;
-    font-weight: 500;
-    padding: 4px 0;
-    border-radius: 0;
-  }
-  
-  .staff-page .content-sections__main {
-    width: 873px;
-  }
-  
-  .staff-page .staff-category-block {
-    margin: 0 0 80px;
-  }
-  
-  .staff-page .category-title {
-    margin: 0 0 16px;
-    font-size: 20px;
-    font-weight: 700;
-    color: #1f2d3d;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-  }
-  
-  .staff-page .category-title i {
+  .category-title i {
     color: #32BAF6;
   }
   
-  .staff-page .staff-grid {
-    display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: 16px;
-  }
   
-  .staff-page .staff-card {
-    border-radius: 8px;
-  }
+
   
-  @media (max-width: 1200px) {
-    .staff-page .content-sections__layout {
-      grid-template-columns: 260px minmax(0, 1fr);
-      justify-content: stretch;
-      padding: 0 24px;
-    }
-  
-    .staff-page .content-sections__main {
-      width: auto;
-    }
-  }
-  
-  @media (max-width: 900px) {
-    .staff-page .content-sections__layout {
-      grid-template-columns: minmax(0, 1fr);
-      row-gap: 24px;
-    }
-  
-    .staff-page .category-nav {
-      width: auto;
-    }
-  
-    .staff-page .staff-grid {
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-    }
-  }
-  
-  @media (max-width: 560px) {
-    .staff-page .staff-grid {
-      grid-template-columns: minmax(0, 1fr);
-    }
-  }
   .category-sidebar {
     display: flex;
     flex-direction: column;
@@ -670,24 +491,14 @@ color: var(--white);
     aspect-ratio: 16 / 9; 
   }
   
-  .alumni-card__play {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background: transparent;
-    border: none;
-    color: #fff;
-    font-size: 50px;
-    z-index: 10;
-  }
+ 
   
   .alumni-card__image {
     width: 100%;
     height: 100%;
     object-fit: cover;
   }
-  .alumni-card alumni-card--social{
+  .alumni-card .alumni-card--social{
   /* Borders */
   
   position: absolute;
@@ -695,11 +506,6 @@ color: var(--white);
   height: 378px;
   left: 28px;
   top: 82px;
-  
-  flex: none;
-  order: 3;
-  flex-grow: 0;
-  z-index: 3;
   }
 
 
@@ -725,30 +531,45 @@ color: var(--white);
     justify-content: center;
     padding: 40px 20px;
   }
+  .cta-banner__content
+  {
+    width: 100%;
+    max-width: 1000px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    margin:  auto;
+    gap: 72px;
+  }
+  .banner-title-text{
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    gap:24px;
+  }
   .cta-banner__title {
    padding-top: 124px;
    margin: 0;
   }
   
   .cta-banner__text {
-    font-size: 20px;
+    font-size: var(--size-m);
     font-weight: 700;
     line-height: 40px;
     color: var(--white);
-    margin-bottom: 40px;
     max-width: 900px;
-    margin-top: 40px;
   }
   .cta__share-label {
-    color: #ffffff;
-    font-size: 20px;
+    color: var(--white);
+    font-size: var(--size-m);
     font-weight: 400;
     line-height: 1;
   }
  
   .cta-banner__or,.cta__share-label {
     color: var(--white);
-    font-size: 24px;
+    font-size: var(--size-l);
     font-weight: 700;
     line-height: 40px;
   }
@@ -829,7 +650,7 @@ flex-grow: 0;
 .footer-link-item a {
   text-decoration: none !important; 
   color: #4A4A4A; 
-  font-size: 14px;
+  font-size: var(--size-xs);
   font-weight: 500;
   transition: color 0.2s ease;
 }
@@ -841,7 +662,6 @@ flex-grow: 0;
 /* Powered byyyy */
 .footer-social-title {
   color: #000000;
-  font-size: 16px;
   margin-bottom: 20px;
 }
 
@@ -887,7 +707,6 @@ flex-grow: 0;
 .cta-banner__social-links  a i {
 width: 28px;
 height: 32px;
-font-family: 'Font Awesome 6 Brands';
 font-style: normal;
 font-weight: 400;
 font-size: 32px;
@@ -904,59 +723,114 @@ flex-grow: 0;
   background-color: #0047BB; 
   color: #FFFFFF;
   text-decoration: none;
-  font-size: 16px;
   font-weight: 700;
   border-radius: 999px; 
   text-transform: uppercase;
   letter-spacing: 0.05em;
   margin-top: 40px; 
 }
+/*======================================RESPONSIVE=================================*/
 
-@media (max-width: 1440px) {
-  .cta-banner__title {
-    font-size: 64px;
-    max-width: 760px;
-  }
-}
+@media (max-width: 391px) {
+  .content-sections__layout {
+    grid-template-columns: minmax(0, 1fr);
+    row-gap: 24px;}
 
-@media (max-width: 1366px) {
-  .cta-banner__title {
-    font-size: 58px;
-  }
-}
-
-@media (max-width: 767px) {
-  .cta-banner {
-    min-height: 420px;
+  .top-links-bar,.header-menu-links,.sidebar-title {
+      display: none;
   }
 
-  .cta-banner__inner {
-    min-height: 420px;
-    padding: 32px 20px;
-  }
-
-  .cta-banner__content {
-    max-width: 100%;
-  }
-
-  .cta-banner__title {
-    font-size: 40px;
-    max-width: 100%;
-  }
-
-  .cta-banner__text {
-    font-size: 16px;
-    line-height: 28px;
-    max-width: 100%;
-  }
-
-  .cta-banner__actions {
-    flex-direction: column;
-    gap: 16px;
-  }
-  .cta-banner__socials {
+  .hero-section {
     display: flex;
-    align-items: center;
-    gap: 20px;                
+    flex-direction: column;
+    min-height: 100vh;
+    justify-content: flex-start; 
+    padding-top: 60px;
 }
+.img-bcg {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
 }
+
+.hero-flag-layer {
+  height: 40%; 
+  width: 100%;
+  top: auto;
+  bottom: 0 ;
+  background-size: cover;
+  background-position: center bottom;
+  
+  -webkit-mask-image: linear-gradient(to bottom, transparent 0%, black 100%);
+  mask-image: linear-gradient(to bottom, transparent 0%, black 100%);
+  z-index: 2;
+}
+
+.cta-social-links
+
+{
+  flex-direction:column;
+}
+.category-sidebar, .category-group,.category-nav__list
+{
+  display: flex;
+  flex-direction: row;
+  overflow-x: auto;
+}
+.swords-of-iron_title, .cta-banner__title{
+  font-size: 32px;
+  line-height:50px;
+}
+.cta-hero_text{
+  font-size: var(--size-xs);
+  line-height:26px;
+}
+.alumni-grid {
+  display: flex ;
+  flex-direction: column ; 
+  gap: 20px;
+}
+
+.alumni-card {
+  display: grid ; 
+  grid-template-columns: 120px 1fr; 
+  gap: 15px;
+  align-items: center;
+  width: 100%;
+}
+
+
+.alumni-card__image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.alumni-card__title {
+  font-size: 14px ;
+  line-height: 1.2 ;
+  margin: 0 ;
+  text-align: left;
+  display: -webkit-box;
+  --webkit-line-clamp: 3;
+  --webkit-box-orient: vertical;
+  overflow: hidden;
+  max-width: 190px;
+  max-height: 66px;
+}
+
+
+.alumni-grid.social-accounts-grid { 
+  display: grid ;
+  grid-template-columns: repeat(2, 1fr) ;
+  gap: 15px;
+}
+
+.alumni-card--social {
+  display: flex ;
+  flex-direction: column ;
+  align-items: center ;
+}
+
+}
+/*=================================================================================================*/

@@ -16,8 +16,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     videoId = rawPath.split('youtu.be/')[1].split('?')[0];
                 }
                 
-                rawPath = `<iframe src="https://www.youtube.com/embed/${videoId}?autoplay=1"
-                 allow="autoplay; encrypted-media" allowfullscreen></iframe>`;
+                rawPath = `<iframe src="https://www.youtube.com/embed/${videoId}?autoplay=1" allow="autoplay; encrypted-media" allowfullscreen></iframe>`;
             }
 
             if (rawPath) {

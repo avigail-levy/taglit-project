@@ -23,12 +23,12 @@ $logo_url = is_array($logo) ? $logo['url'] : $logo;
 
 <section class="hero-section">
     <div class="hero-bg-texture" style="background-image: url('<?php echo esc_url($bg_url); ?>');"></div>
-    
-    <div class="hero-flag-layer" style="background-image: url('<?php echo get_template_directory_uri(); ?>/assets/images/flag-israel-bcg.jpg');"></div>    
-    <div class="hero__overlay"></div>
-
+        <div class="img-bcg">
+        <div class="hero-flag-layer" style="background-image: url('<?php echo get_template_directory_uri(); ?>/assets/images/flag-israel-bcg.jpg');"></div>    
+     <div class="hero__overlay"></div>
+    </div>
     <div class="hero__inner container">
-        <div class="cta-banner__content">
+        <div class="cta-hero__content">
             
             <?php if($logo_url): ?>
                 <div class="cta-banner__logo">
