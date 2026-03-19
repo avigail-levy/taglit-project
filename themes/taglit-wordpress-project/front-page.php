@@ -2,20 +2,16 @@
 <?php get_template_part('template-parts/hero'); ?>
 
 <main class="site-main alumni-page home-page"> 
+<div class="sections__layout_out">
     <div class="container content-sections__layout">
-        
-    <aside class="category-sidebar">
-    <div class="category-group">
-        <h3 class="sidebar-title">Alumni</h3>
-        <?php get_template_part('template-parts/category-nav', null, array('taxonomy' => 'alumni_category')); ?>
-    </div>
 
-    <div class="category-group">
-        <h3 class="sidebar-title">Staff</h3>
-        <?php get_template_part('template-parts/category-nav', null, array('taxonomy' => 'staff_category')); ?>
-    </div>
-</aside>
-
+<aside class="category-sidebar">
+            <?php 
+            get_template_part('template-parts/category-nav', null, array(
+                'taxonomy' => array('alumni_category', 'staff_category')
+            )); 
+            ?>
+ </aside>
         <div class="content-sections__main">
             <?php 
             // אלומני!!!!
@@ -32,6 +28,7 @@
             ?>
         </div>
     </div>
+    <div>
 </main>
 
 <?php get_template_part('template-parts/banner'); ?>
