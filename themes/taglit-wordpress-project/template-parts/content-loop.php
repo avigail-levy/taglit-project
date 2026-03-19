@@ -23,7 +23,7 @@ if (!empty($terms) && !is_wp_error($terms)) :
                 <?php echo esc_html($term->name); ?>
             </h2>
 
-            <div class="alumni-grid">
+            <div class="alumni-grid grid-<?php echo esc_attr($term->slug); ?>">
                 <?php
                 $query = new WP_Query(array(
                     'post_type'      => $post_type,

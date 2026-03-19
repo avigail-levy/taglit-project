@@ -4,36 +4,25 @@
  Description: A custom theme for Alumni and Staff blog environments.
  Version: 1.0
 */
-ol, ul,h1,p {
+ol, ul,h1,p,html,body {
   padding: 0;
   margin: 0;
   }
 * {
+  max-width: 100%;
    margin: 0 ;
   padding: 0;
   box-sizing: border-box; 
 }
 
-html {
-  font-size: 16px; 
-}
-
-html body {
-  font-family: 'Nexa', sans-serif;
-  font-size: 1rem; 
-  line-height: 1.5; 
-  color:#172336;
-  align-items: center;
-  justify-content: center;
-}
-
 :root {
   /* צבעים */
   --primary-blue: #0F1935;
-  --action-blue: #00AEEF;
+  --sky-blue:#32BAF6;
   --white: #ffffff;
   --gradient-social: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888);
   --gray:#6F6F6F;
+  --dark-gray:#172336;
 
   /* גדלים */
     --size-xs: 0.875rem; /*14*/
@@ -44,7 +33,26 @@ html body {
     --size-xxl: 5rem;/*80*/
 
     --main-font: 'Nexa', sans-serif;
+    --base-font-size: 16;
 }
+html {
+  font-size: var(--base-font-size); 
+}
+
+html, body {
+  
+  overflow-x: hidden; 
+  font-family: 'Nexa', sans-serif;
+  font-weight: 700;
+  font-size:var(--size-s); 
+  line-height: 1.5; 
+   color:var(--dark-gray); 
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+
+
 @font-face {
   font-family: 'Nexa';
   src: url('fonts/nexa/nexabold.woff2') format('woff2');
@@ -61,19 +69,17 @@ html body {
   background:var(--primary-blue);
   display: flex;
   align-items: center;
-  padding: 24px 35px;
-  min-height: 50px;    
+  padding:calc(24rem/var(--base-font-size)) calc(70rem/var(--base-font-size));
 }
 
 .top-links-list{
   display:flex;
-  gap:40px;
+  gap:calc(40rem/var(--base-font-size));
   margin: 0;
 }
 
 .top-links-list a{
-   font-weight: 700;
-  color:white;
+  color:var(--white);
   text-decoration:none;
 }
 
@@ -82,20 +88,15 @@ html body {
 }
 
 .site-header { 
-    padding-left:60px; 
-    padding-right: 60px;
+    padding: 0 calc(60rem / var(--base-font-size));
     background-color: var(--white);
     display: flex;
     justify-content: space-between; 
     align-items: center;
-    border-bottom: 1px solid #E5E5E5;
-    width: 100%;
-    top:64px
 }
 
 .header-menu-links {
-    max-width: 287px;
-    min-height: 76px; 
+    max-width: calc(287rem/var(--base-font-size));
     display: flex;
     align-items: center;
 }
@@ -103,37 +104,19 @@ html body {
 .main-menu-list {
     display: flex;
     list-style: none;
-    gap: 30px; 
+    gap: calc(30rem/var(--base-font-size));
 }
 
 .main-menu-list li a {
     text-decoration: none;
-    color: #4A4A4A;
+    color: var(--dark-gray);
     font-size: var(--size-xs);
-    font-weight: 700;
-    letter-spacing: 1.3px;
-}
-
-.logo-header {
-    max-width: 160px; 
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    gap: 10px;
-
-}
-
-.logo-header img {
-  max-width: 160px;
-  gap: 10px;
 }
 
 .btn_login {
-    max-width: 93px; 
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 10px;
     background: var(--white);
 }
 
@@ -141,15 +124,12 @@ html body {
     color: var(--primary-blue);
     text-decoration: none;
     font-size: var(--size-xs);
-    font-weight: 700;
 }
 /*-------------------------------------HERO SECTION------------------------------- */
 
 .hero-section {
   position: relative;
-  width: 100%;
- /* display: flex;*/
-  overflow: hidden;
+  display: flex;
 }
 
 .hero-bg-texture {
@@ -170,21 +150,15 @@ html body {
 .hero__inner,.banner__inner {
   position: relative;
   z-index: 10;
-  width: 100%;
 }
 
 .hero-flag-layer {
   position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 0;
   width: 50%; 
   height: 100%;
-  
   background-size: cover; 
   background-position: 80% center; 
   background-repeat: no-repeat;
-  
   -webkit-mask-image: linear-gradient(to right, black 10%, transparent 90%);
   mask-image: linear-gradient(to right, black 10%, transparent 90%);
   filter: saturate(1.4) contrast(1.1) brightness(0.5);
@@ -192,28 +166,23 @@ html body {
   mix-blend-mode: normal;
 }
 
-
 .cta-banner__logo{
-padding-top: 88px;
+padding-top: calc(88rem/var(--base-font-size));;
 }
 .cta-hero__content {
-  width: 100%;
-  max-width: 1000px;
+  max-width: calc(1000rem/var(--base-font-size));
   display: flex;
   flex-direction: column;
   align-items: center;
   text-align: center;
   margin:  auto;
-  gap: 72px;
+  gap: calc(72rem/var(--base-font-size));;
 }
 .heading-paragraph{
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 0px;
-  gap: 24px;
-  max-width: 1000px;
-  min-height: 304px;
+  gap: calc(24rem/var(--base-font-size));;
   }
 
 .swords-of-iron_title, .cta-banner__title {
@@ -224,11 +193,9 @@ text-align: center;
 color: var(--white);
 }
 .cta-hero_text {
-  max-width: 1000px;
-  font-style: normal;
-  font-weight: 700;
+  max-width: calc(1000rem/var(--base-font-size));;
   font-size: var(--size-m);
-  line-height: 40px;
+  line-height: calc(40rem/var(--base-font-size));;
   text-align: center;
   text-transform: capitalize;
   color: var(--white);
@@ -239,39 +206,36 @@ color: var(--white);
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 24px;
-    min-height: 56px;
+    gap: calc(24rem/var(--base-font-size));
     flex-wrap: wrap;
-    padding-bottom: 65px;
+    padding-bottom: calc(65rem/var(--base-font-size));
   }
   .cta-social-links{
     display: flex;
     align-items: center;
-    gap: 24px;
-   
-    flex-wrap: wrap;
-    justify-content: center;
-    
+    gap: calc(24rem/var(--base-font-size));;
+    flex-wrap: wrap;  
+    justify-content: center; 
     } 
 /*---------------------------posts + categories--------------------------------*/
 
-.container .content-sections__layout {
+.content-sections__layout {
   display: grid;
-  grid-template-columns: 274px minmax(0, 873px);
+  grid-template-columns: 1fr 3fr;
   justify-content: center;
-  column-gap: 15px;
+  column-gap: var(--size-s);
   align-items: start;
-  padding-top: 100px;
+  padding-top: calc(100rem/var(--base-font-size));
 }
+
 #post-97 {
     grid-column: span 3; 
-    width: 100%;
 }
 
 #post-97 .alumni-card__image {
     aspect-ratio: auto; 
     width: 100%;
-    max-height: 450px; 
+    max-height: calc(450rem/var(--base-font-size)); 
     object-fit: cover;
 }
   .alumni-card__media {
@@ -291,10 +255,9 @@ color: var(--white);
   
   .alumni-card__title {
     font-size: var(--size-s);
-    margin: 12px 0 0;
+    margin: calc(12rem/var(--base-font-size)) 0 0;
     line-height: 1.35;
     font-weight: 600;
-    color: #1f2d3d;
   }
   .alumni-card__play {
     position: absolute;
@@ -303,8 +266,8 @@ color: var(--white);
     transform: translate(-50%, -50%);
     background: transparent;
     border: none;
-    color: #fff;
-    font-size: 50px;
+    color: var(--white);
+    font-size: calc(50rem/var(--base-font-size));
     z-index: 10;
   }
   
@@ -318,31 +281,30 @@ color: var(--white);
     display: inline-flex;
     flex-direction: column;
     align-items: center;
-    gap:30px;
+    gap:calc(30rem/var(--base-font-size));
   }
   
   .alumni-card__social-avatar img{
   object-fit: cover;
   border-radius: 50%;
-  border: 3px solid #FFFFFF; 
+  border: calc(3rem/var(--base-font-size)) solid var(--white); 
   box-sizing: border-box;
   
   }
   
   .alumni-card__social-avatar {
-  display: flex;
-  flex-direction: row;
-  align-items: flex-start;
-  padding: 10px 28px;
-  gap: 10px;
-  width: 144px;
-      height: 144px;
+      display: flex;
+      flex-direction: row;
+      align-items: flex-start;
+      padding: calc(10rem/var(--base-font-size)) calc(28rem/var(--base-font-size));
+      gap: calc(10rem/var(--base-font-size));
+      width: calc(144rem/var(--base-font-size));
+      height: calc(144rem/var(--base-font-size));
       border-radius: 50%;
-      
       align-items: center;
       justify-content: center;
       background: var(--gradient-social);
-      padding: 3px; 
+      padding: calc(3rem/var(--base-font-size)); 
       position: relative;
   }
   
@@ -356,7 +318,7 @@ color: var(--white);
     font-size: var(--size-xs);
     line-height: 1.4;
     font-weight: 500;
-    color: #1f2d3d;
+    color:var(--dark-gray);
   }
   
   .alumni-card__video-placeholder {
@@ -365,20 +327,61 @@ color: var(--white);
     display: flex;
     align-items: center;
     justify-content: center;
-    background: #ddd;
-    color: #666;
     font-size: var(--size-xs);
   }
   
   .content-sections {
-    margin-top: 80px;   
-    margin-bottom: 80px;
+    margin-top: calc(80rem/var(--base-font-size)); 
+    margin-bottom: calc(80rem/var(--base-font-size));
   }
   
+ 
+  
+  .alumni-category-block {
+    margin: 0 0 calc(80rem/var(--base-font-size));
+  }
+
+    
+  .category-title {
+    margin: 0 0 calc(16rem/var(--base-font-size));
+    font-size: var(--size-m);
+    display: flex;
+    align-items: center;
+    gap: calc(8rem/var(--base-font-size));
+  }
+  
+  .category-title i {
+    color: var(--sky-blue);
+  }
+  
+  .alumni-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: calc(16rem/var(--base-font-size));
+  }
+
+  .alumni-card--social {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+  
+  .alumni-card {
+    width: 100%;
+    max-width: none;
+  }
+  
+  .content-sections {
+    margin-top: calc(80rem/var(--base-font-size));
+    margin-bottom: calc(80rem/var(--base-font-size));
+  }
+  
+  
   .category-nav {
-    width: 274px;
+    width: calc(274rem/var(--base-font-size));;
     position: sticky;
-    top: 80px;        
+    top: calc(80rem/var(--base-font-size));;
     align-self: flex-start;
   }
   
@@ -393,96 +396,20 @@ color: var(--white);
     text-decoration: none;
     color: var(--gray);
     font-size: var(--size-xs);
-    font-weight: 700;
-    padding:16px;
+    padding:calc(16rem/var(--base-font-size));
     border-radius: 0;
-    gap:10px;
-    
-  }
-  
-  /* .category-nav__link.is-active {
-    color: #32BAF6;
-    font-weight: 600;
-  } */
-  
-  .category-nav__link:hover {
-    background: transparent;
-    color: #32BAF6;
-  }
-  
-  .alumni-category-block {
-    margin: 0 0 80px;
-  }
-
-    
-  .category-title {
-    margin: 0 0 16px;
-    font-size: var(--size-m);
-    font-weight: 700;
-    color: #1f2d3d;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-  }
-  
-  .category-title i {
-    color: #32BAF6;
-  }
-  
-  .alumni-grid {
-    display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: 16px;
-  }
-  
-  .alumni-card {
-    border-radius: 8px;
-  }
-  
-  
-  .content-sections {
-    margin-top: 80px;
-    margin-bottom: 80px;
-  }
-  
-  .content-sections__layout {
-    display: grid;
-    grid-template-columns: 274px minmax(0, 873px);
-    justify-content: center;
-    column-gap: var(--size-m);
-    align-items: start;
-    padding-top: 100px;
-  }
-  
-  .category-nav {
-    width: 274px;
-    position: sticky;
-    top: 80px;
-    align-self: flex-start;
-  }
-  
-  .category-nav__list {
-    list-style: none;
-    display: flex;
-    flex-direction: column;
+    gap: calc(10rem/var(--base-font-size));
   }
 
   .content-sections__main {
-    max-width: 873px;
-    gap:32px;
+    max-width: calc(873rem/var(--base-font-size));
+    gap:calc(32rem/var(--base-font-size));
   }
-  
-  .category-title i {
-    color: #32BAF6;
-  }
-  
-  
-
-  
+    
   .category-sidebar {
     display: flex;
     flex-direction: column;
-    gap: 40px; 
+    gap: calc(40rem/var(--base-font-size));; 
   }
   .alumni-card__media--video {
     position: relative;
@@ -491,74 +418,48 @@ color: var(--white);
     aspect-ratio: 16 / 9; 
   }
   
- 
-  
   .alumni-card__image {
     width: 100%;
     height: 100%;
     object-fit: cover;
   }
-  .alumni-card .alumni-card--social{
-  /* Borders */
   
-  position: absolute;
-  width: 816px;
-  height: 378px;
-  left: 28px;
-  top: 82px;
-  }
 
 
 /*-------------------------------BANNER SECTION------------------------------*/
 .cta-banner {
     position: relative;
-    min-height: 560px;
+    min-height: calc(560rem/var(--base-font-size));
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
     overflow: hidden;
     width: 100%;
-    max-width: 100vw; 
-    overflow: hidden; 
     box-sizing: border-box;
-  }
-  .cta-banner__inner {
-    position: relative;
-    z-index: 2;
-    min-height: 560px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 40px 20px;
   }
   .cta-banner__content
   {
-    width: 100%;
-    max-width: 1000px;
     display: flex;
     flex-direction: column;
-    align-items: center;
     text-align: center;
-    margin:  auto;
-    gap: 72px;
+    gap: calc(72rem/var(--base-font-size));
   }
   .banner-title-text{
     display:flex;
     flex-direction: column;
     align-items: center;
-    gap:24px;
+    gap: calc(24rem/var(--base-font-size));
   }
   .cta-banner__title {
-   padding-top: 124px;
+   padding-top: calc(124rem/var(--base-font-size));
    margin: 0;
   }
   
   .cta-banner__text {
     font-size: var(--size-m);
-    font-weight: 700;
-    line-height: 40px;
+    line-height: calc(40rem/var(--base-font-size));
     color: var(--white);
-    max-width: 900px;
+    max-width: calc(900rem/var(--base-font-size));;
   }
   .cta__share-label {
     color: var(--white);
@@ -570,15 +471,13 @@ color: var(--white);
   .cta-banner__or,.cta__share-label {
     color: var(--white);
     font-size: var(--size-l);
-    font-weight: 700;
-    line-height: 40px;
+    line-height: calc(40rem/var(--base-font-size));;
   }
   
   .cta-banner .social-icons {
     display: flex;
-    align-items: center;
-    gap: 15px;                 
-    gap: 16px;
+    align-items: center;                 
+    gap: var(--size-s);
 }
   
 .social-button {
@@ -586,31 +485,25 @@ display: flex;
 flex-direction: column;
 justify-content: center;
 align-items: center;
-padding: 10px;
-gap: 10px;
-width: 56px;
-height: 56px;
-background: #FFFFFF;
-border-radius: 999px;
-flex: none;
-order: 0;
-flex-grow: 0;
-
-    
+padding: calc(10rem/var(--base-font-size));
+gap:  calc(10rem/var(--base-font-size));
+width:  calc(56rem/var(--base-font-size));
+height:  calc(56rem/var(--base-font-size));
+background:var(--white);
+border-radius:  calc(999rem/var(--base-font-size)); 
 }
 
   .cta-banner__button {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    height: 36px;
-    padding: 0 24px;
-    border-radius: 999px;
-    background-color: #33b5f6;
-    color: #ffffff;
+    height:  calc(36rem/var(--base-font-size));
+    padding: 0 calc(24rem/var(--base-font-size));
+    border-radius: calc(999rem/var(--base-font-size));
+    background-color: var(--sky-blue);
+    color: var(--white);
     text-decoration: none;
-    font-size: 12px;
-    font-weight: 700;
+    font-size: var(--size-xs);
     line-height: 1;
     text-transform: uppercase;
     white-space: nowrap;
@@ -618,55 +511,55 @@ flex-grow: 0;
 
 /**/
 .category-nav__link.is-active {
-  color: #32BAF6 !important;
+  color:var(--sky-blue) !important;
   font-weight: 600;
 }
 
 .category-nav__link:hover {
-  color: #32BAF6;
+  color: var(--sky-blue);
 }
 /*---------------------------------FOOTER SECTION--------------------------------*/
 .site-footer {
-  border-top: 1px solid #E5E5E5;
-  background-color: #FFFFFF !important;
+  border-top: calc(1rem/var(--base-font-size)) solid var(--white);
+  background-color: var(--white) !important;
 }
 
 .footer-links-wrapper {
   display: flex;
   flex-wrap: wrap;
-  gap: 200px; 
+  gap: calc(200rem/var(--base-font-size));
   justify-content: center;
-  padding-left: 150px;
+  padding-left: calc(150rem/var(--base-font-size));;
 }
 
 .footer-links-column {
-  min-width: 150px; 
+  min-width:calc(150rem/var(--base-font-size));
 }
 
 .footer-link-item {
-  margin-bottom: 12px;
+  margin-bottom: calc(12rem/var(--base-font-size));;
 }
 
 .footer-link-item a {
   text-decoration: none !important; 
-  color: #4A4A4A; 
+  color: var(--dark-gray); 
   font-size: var(--size-xs);
   font-weight: 500;
   transition: color 0.2s ease;
 }
 
 .footer-link-item a:hover {
-  color: #32BAF6; 
+  color: var(--sky-blue); 
 }
 
 /* Powered byyyy */
 .footer-social-title {
   color: #000000;
-  margin-bottom: 20px;
+  margin-bottom: calc(20rem/var(--base-font-size));
 }
 
 .powered-by-text, .credit-link {
-  font-size: 12px;
+  font-size: calc(12rem/var(--base-font-size));
   color: #9B9B9B;
   text-decoration: none !important;
 }
@@ -685,19 +578,19 @@ flex-grow: 0;
 .footer-social-icons {
   display: flex;
   justify-content: center;
-  gap: 2px;
-  margin-top: 10px;
+  gap: calc(2rem/var(--base-font-size));
+  margin-top: calc(10rem/var(--base-font-size));
 }
 
 .footer-social-icons a img {
-  width: 30px; 
+  width: calc(30rem/var(--base-font-size));
   height: auto;
   transition: transform 0.3s ease;
 }
 /*--------------------------------------------------finish----------------------------------------------*/
 
 .cta-banner__social-links  a  {
-  width: 56px;
+  width: calc(56rem/var(--base-font-size));
   height: auto;
   line-height: 1;
   letter-spacing: 0;
@@ -705,12 +598,12 @@ flex-grow: 0;
 }
 
 .cta-banner__social-links  a i {
-width: 28px;
-height: 32px;
+width: calc(28rem/var(--base-font-size));
+height: calc(32rem/var(--base-font-size));
 font-style: normal;
 font-weight: 400;
-font-size: 32px;
-line-height: 32px;
+font-size: calc(32rem/var(--base-font-size));
+line-height: calc(32rem/var(--base-font-size));;
 text-transform: capitalize;
 flex: none;
 order: 0;
@@ -719,24 +612,23 @@ flex-grow: 0;
 
 .btn-support-now {
   display: inline-block;
-  padding: 16px 36px; 
+  padding: var(--size-s) calc(36rem/var(--base-font-size)); 
   background-color: #0047BB; 
-  color: #FFFFFF;
+  color: var(--white);
   text-decoration: none;
-  font-weight: 700;
-  border-radius: 999px; 
-  text-transform: uppercase;
+  border-radius: calc(999rem/var(--base-font-size));; 
   letter-spacing: 0.05em;
-  margin-top: 40px; 
+  margin-top: calc(40rem/var(--base-font-size));; 
 }
 /*======================================RESPONSIVE=================================*/
 
 @media (max-width: 391px) {
   .content-sections__layout {
     grid-template-columns: minmax(0, 1fr);
-    row-gap: 24px;}
+    row-gap: calc(24rem/var(--base-font-size));
+  }
 
-  .top-links-bar,.header-menu-links,.sidebar-title {
+  .top-links-bar,.header-menu-links,.sidebar-title ,.site-footer{
       display: none;
   }
 
@@ -745,7 +637,7 @@ flex-grow: 0;
     flex-direction: column;
     min-height: 100vh;
     justify-content: flex-start; 
-    padding-top: 60px;
+    padding-top: calc(60rem/var(--base-font-size));
 }
 .img-bcg {
   position: absolute;
@@ -766,6 +658,12 @@ flex-grow: 0;
   z-index: 2;
 }
 
+.alumni-card__media--video
+{
+  max-width: 100%;
+  height: calc(90rem/var(--base-font-size));
+}
+
 .cta-social-links
 
 {
@@ -778,23 +676,24 @@ flex-grow: 0;
   overflow-x: auto;
 }
 .swords-of-iron_title, .cta-banner__title{
-  font-size: 32px;
-  line-height:50px;
+  font-size: calc(32rem/var(--base-font-size));
+  line-height:calc(50rem/var(--base-font-size));
 }
 .cta-hero_text{
   font-size: var(--size-xs);
-  line-height:26px;
+  line-height:calc(26rem/var(--base-font-size));
 }
-.alumni-grid {
-  display: flex ;
-  flex-direction: column ; 
-  gap: 20px;
+ .grid-reliable-social-accounts {
+    display: grid ; 
+    grid-template-columns: repeat(2, 1fr) !important; 
+    gap: calc(20rem/var(--base-font-size));
+    width: 100%;
 }
 
 .alumni-card {
   display: grid ; 
-  grid-template-columns: 120px 1fr; 
-  gap: 15px;
+  grid-template-columns: calc(156rem/var(--base-font-size)) 1fr; 
+  gap: calc(15rem/var(--base-font-size));
   align-items: center;
   width: 100%;
 }
@@ -807,30 +706,106 @@ flex-grow: 0;
 }
 
 .alumni-card__title {
-  font-size: 14px ;
-  line-height: 1.2 ;
-  margin: 0 ;
-  text-align: left;
-  display: -webkit-box;
-  --webkit-line-clamp: 3;
-  --webkit-box-orient: vertical;
-  overflow: hidden;
-  max-width: 190px;
-  max-height: 66px;
-}
-
-
-.alumni-grid.social-accounts-grid { 
-  display: grid ;
-  grid-template-columns: repeat(2, 1fr) ;
-  gap: 15px;
+    font-size: calc(14rem/var(--base-font-size));
+    line-height: calc(22rem/var(--base-font-size));
+    margin: 0;
+    text-align: left;
+    width: 100%; 
+    max-width: calc(190rem/var(--base-font-size));
+    max-height: calc(88rem/var(--base-font-size)); 
+    display: -webkit-box;
+    -webkit-line-clamp: 4; 
+    -webkit-box-orient: vertical; 
+    overflow: hidden;
+    text-overflow: ellipsis;
+    word-break: break-word;
 }
 
 .alumni-card--social {
   display: flex ;
   flex-direction: column ;
   align-items: center ;
+  width: 100%;
+}
+.alumni-card__social-avatar{
+width: calc(104rem/var(--base-font-size));
+height: calc(104rem/var(--base-font-size));
+ margin: 0 auto; 
 }
 
 }
 /*=================================================================================================*/
+@media (max-width: 1440px) {
+  .cta-banner__title {
+    font-size: calc(64rem/var(--base-font-size));
+    max-width: calc(760rem/var(--base-font-size));
+  }
+}
+
+@media (max-width: 1366px) {
+  .cta-banner__title {
+    font-size: calc(58rem/var(--base-font-size));
+  }
+}
+
+@media (max-width: 767px) {
+  .cta-banner {
+    min-height: calc(420rem/var(--base-font-size));
+  }
+
+  .cta-banner__content {
+    max-width: 100%;
+  }
+
+  .cta-banner__title {
+    font-size: var(--size-xl);
+    max-width: 100%;
+  }
+
+  .cta-banner__text {
+    line-height: calc(28rem/var(--base-font-size));
+    max-width: 100%;
+  }
+
+  .cta-banner__actions {
+    flex-direction: column;
+    gap: calc(16rem/var(--base-font-size));
+  }
+  .cta-banner__socials {
+    display: flex;
+    align-items: center;
+    gap: calc(20rem/var(--base-font-size));                
+}
+} 
+ 
+ @media (max-width: 1200px) {
+  .content-sections__layout {
+    grid-template-columns: calc(260rem/var(--base-font-size)) minmax(0, 1fr);
+    justify-content: stretch;
+    padding: 0 calc(24rem/var(--base-font-size));
+  }
+
+  .content-sections__main {
+    width: auto;
+  }
+}
+@media (max-width: 900px) {
+  .content-sections__layout {
+    grid-template-columns: minmax(0, 1fr);
+    row-gap: calc(24rem/var(--base-font-size));
+  }
+
+  .category-nav {
+    width: auto;
+  }
+
+  .alumni-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 560px) {
+  .alumni-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+} 
