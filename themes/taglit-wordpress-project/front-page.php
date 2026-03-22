@@ -2,10 +2,12 @@
 <?php get_template_part('template-parts/hero'); ?>
 
 <main class="site-main alumni-page home-page"> 
-<div class="sections__layout_out">
+
+
     <div class="container content-sections__layout">
 
-<aside class="category-sidebar">
+
+    <aside class="category-sidebar">
             <?php 
             get_template_part('template-parts/category-nav', null, array(
                 'taxonomy' => array('alumni_category', 'staff_category')
@@ -27,7 +29,6 @@
             )); 
             ?>
         </div>
-    </div>
     <div>
 </main>
 

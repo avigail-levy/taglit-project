@@ -45,6 +45,24 @@ if (!empty($terms) && !is_wp_error($terms)) :
                 endif;
                 ?>
             </div>
+            <?php
+            $extra_text = get_field('category_description_text', $term); 
+            $btn_text   = get_field('button_text', $term);               
+            $btn_link   = get_field('button_link', $term);               
+
+            if ($extra_text) : ?>
+                <div class="category-content">
+                    <p class="category-extra-text">
+                        <?php echo $extra_text; ?>
+                    </p>
+                    
+                    <?php if ($btn_link && $btn_text) : ?>
+                        <a href="<?php echo esc_url($btn_link); ?>" class="btn-support-now">
+                            <?php echo esc_html($btn_text); ?>
+                        </a>
+                    <?php endif; ?>
+                </div>
+            <?php endif; ?>
         </section>
     <?php
     endforeach;

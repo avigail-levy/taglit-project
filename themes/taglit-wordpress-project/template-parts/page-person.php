@@ -7,13 +7,11 @@ $taxonomy  = $args['taxonomy'];
 
 <main class="site-main alumni-page">
     <?php get_template_part('template-parts/hero'); ?>
-    
+ 
     <div class="container content-sections__layout">
-        
-        <?php get_template_part('template-parts/category-nav', null, array(
+    <?php get_template_part('template-parts/category-nav', null, array(
             'taxonomy' => $taxonomy
         )); ?>
-        
         <div class="content-sections__main">
             <?php 
             get_template_part('template-parts/content-loop', null, array(
