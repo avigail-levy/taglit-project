@@ -10,7 +10,7 @@ ol, ul,h1,p,html,body {
   }
 * {
   max-width: 100%;
-   margin: 0 ;
+  margin: 0 ;
   padding: 0;
   box-sizing: border-box; 
 }
@@ -40,14 +40,12 @@ html {
 }
 
 html, body {
-  
-  overflow-x: hidden; 
+  align-items: center;
   font-family: 'Nexa', sans-serif;
   font-weight: 700;
   font-size:var(--size-s); 
   line-height: 1.5; 
    color:var(--dark-gray); 
-  align-items: center;
   justify-content: center;
   width: 100%;
 }
@@ -213,7 +211,7 @@ color: var(--white);
     justify-content: center;
     gap: calc(24rem/var(--base-font-size));
     flex-wrap: wrap;
-    padding-bottom: calc(65rem/var(--base-font-size));
+    padding-bottom: calc(88rem/var(--base-font-size));
   }
   .cta-social-links{
     display: flex;
@@ -225,13 +223,25 @@ color: var(--white);
 /*---------------------------posts + categories--------------------------------*/
 
 .content-sections__layout {
-  display: grid;
-  grid-template-columns: 1fr 3fr;
+  /* display: grid;V
+  grid-template-columns: 1fr 3fr;V
   justify-content: center;
-  column-gap: var(--size-s);
-  align-items: start;
-  padding-top: calc(120rem/var(--base-font-size));
-}
+  column-gap: var(--size-s);V
+  align-items: start;V
+  padding-top: calc(120rem/var(--base-font-size));V */
+  /* display: block;  
+    width: 100%; */
+
+    display: grid;
+        grid-template-columns: 1fr 3fr; /* תפריט צד ברוחב קבוע */
+        column-gap: var(--size-s);
+
+        align-items: start;
+        max-width: 1200px;
+        margin: 0 auto;
+        padding-top: calc(120rem/var(--base-font-size)); 
+      }
+
 #post-97 {
     grid-column: span 3; 
 }
@@ -285,7 +295,7 @@ color: var(--white);
     display: inline-flex;
     flex-direction: column;
     align-items: center;
-    gap:calc(30rem/var(--base-font-size));
+    gap:calc(26rem/var(--base-font-size));
   }
   
   .alumni-card__social-avatar img{
@@ -338,13 +348,19 @@ color: var(--white);
     margin-top: calc(80rem/var(--base-font-size)); 
     margin-bottom: calc(80rem/var(--base-font-size));
   }
+  .category-nav-div
+{
+  height: 100%;
+    top: 0;
+    
+}
   
   .alumni-category-block {
     margin: 0 0 calc(80rem/var(--base-font-size));
   }
   .category-title {
     margin: 0 0 calc(32rem/var(--base-font-size));
-    font-size: var(--size-m);
+    font-size: var(--size-xl);
     display: flex;
     align-items: center;
     gap: calc(8rem/var(--base-font-size));
@@ -357,8 +373,12 @@ color: var(--white);
   .alumni-grid {
     display: grid;
     grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: calc(16rem/var(--base-font-size));
+    gap: calc(24rem/var(--base-font-size));
   }
+  .alumni-grid .grid-reliable-social-accounts
+{
+  background-color: #0F1935;
+}
 
   .alumni-card--social {
     display: flex;
@@ -379,26 +399,42 @@ color: var(--white);
   
   
   .category-nav {
-    width: calc(274rem/var(--base-font-size));;
+    /* width:100%;
     position: sticky;
-    top: calc(80rem/var(--base-font-size));;
-    align-self: flex-start;
+    top: calc(80rem/var(--base-font-size));;V
+    align-self: flex-start; */
+    top: calc(80rem/var(--base-font-size));
+
   }
   
-  .category-nav__list {
+  /* .category-nav__list {
+    list-style: none;V
+    display: flex;V
+     flex-direction: columnV
+
+    justify-content: center; 
+    flex-wrap: wrap;
     list-style: none;
+    gap: 40px; 
+    margin: 0 auto;
+  } */
+
+  .category-nav__list {
+    
     display: flex;
-    flex-direction: column;
-  }
+        flex-direction: column; /* לאורך */
+        list-style: none;
+}
   
   .category-nav__link {
-    display: flex;
     text-decoration: none;
     color: var(--gray);
     font-size: var(--size-xs);
     padding:calc(16rem/var(--base-font-size));
     border-radius: 0;
     gap: calc(10rem/var(--base-font-size));
+    transition: color 0.3s ease; 
+    display: block;
   }
 
   .content-sections__main {
@@ -407,9 +443,12 @@ color: var(--white);
   }
     
   .category-sidebar {
-    display: flex;
+    /* display: flex;
     flex-direction: column;
-    gap: calc(40rem/var(--base-font-size));; 
+    gap: calc(40rem/var(--base-font-size)); V  */
+    position: sticky; /* נצמד למעלה בגלילה */
+    gap: calc(40rem/var(--base-font-size));
+    top: 20px; /* זה מה שהיה חסר! המרחק מהקצה העליון של המסך */
   }
   .alumni-card__media--video {
     position: relative;
@@ -423,10 +462,11 @@ color: var(--white);
     height: 100%;
     object-fit: cover;
   }
-  /* .grid-reliable-social-accounts{
-    grid-template-columns: repeat(4, minmax(0, 1fr));
-    
-  } */
+  
+  .grid-reliable-social-accounts {
+    grid-template-columns: repeat(4, minmax(0, 1fr)) ;
+
+}
 /*-------------------------------BANNER SECTION------------------------------*/
   .cta-banner {
     position: relative;
@@ -695,7 +735,7 @@ flex-grow: 0;
   .content-sections__layout {
     grid-template-columns: calc(260rem/var(--base-font-size)) minmax(0, 1fr);
     justify-content: stretch;
-    padding: 0 calc(24rem/var(--base-font-size));
+    /* padding: 0 calc(24rem/var(--base-font-size)); */
     padding-top: calc(100rem / var(--base-font-size));
   }
 
@@ -705,13 +745,28 @@ flex-grow: 0;
 }
 @media (max-width: 1000px) {
   .content-sections__layout {
-    grid-template-columns: minmax(0, 1fr);
+    /* grid-template-columns: minmax(0, 1fr);
     row-gap: calc(24rem/var(--base-font-size));
-    padding-top:0;
+    padding-top:0; */
+    display: block; /* מבטל את הטורים */
+    /* width: 100%; */
+    padding: 0;
   }
-
+  .content-sections__main
+  {
+    padding: 16px;
+    margin-inline: auto;
+  }
   .category-nav {
     width: auto;
+  }
+  .category-sidebar
+  {
+    width: 100%;
+  }
+  .category-nav-div{
+    width: 100%;
+    margin-bottom: 30px;
   }
 
   .alumni-grid {
@@ -729,10 +784,16 @@ flex-grow: 0;
     margin-top: calc(40rem / var(--base-font-size));
     width: 100%;
   }
+  .category-nav__link
+  {
+    flex: 0 0 auto;    /* מונע התכווצות */
+    white-space: nowrap; /* שומר על הקטגוריה בשורה אחת */
+    padding: 16px 12px;
+  }
 
 
 .category-nav__list {
-  width: 100%;
+  /* width: 100%;
   display: flex;
   flex-direction: row; 
   overflow-x: auto; 
@@ -740,8 +801,25 @@ flex-grow: 0;
   white-space: nowrap; 
   -webkit-overflow-scrolling: touch; 
   gap: calc(10rem / var(--base-font-size)); 
-  background-color: #F2F5F6;
   top: calc(870rem/var(--base-font-size));
+   */
+   /* display: flex;
+    flex-direction: row; 
+    flex-wrap: nowrap;   
+    overflow-x: auto;    
+    -webkit-overflow-scrolling: touch;
+    gap: 20px;
+    padding: 15px;
+    scrollbar-width: none; */
+
+    display: flex;
+        flex-direction: row; /* לרוחב */
+        flex-wrap: nowrap;   /* שורה אחת בלבד */
+        overflow-x: auto;    /* גלילה אופקית */
+        -webkit-overflow-scrolling: touch;
+        gap: 10px;
+        background-color: #F2F5F6;
+        scrollbar-width: none;
 }
 
 .category-nav__item {
@@ -769,13 +847,25 @@ flex-grow: 0;
 /*=================================================================================================*/
 
 @media (max-width: 391px) {
+  #post-97 {
+   display: block;
+}
   .content-sections__layout {
     grid-template-columns: minmax(0, 1fr);
     row-gap: calc(24rem/var(--base-font-size));
-    padding: calc(16rem / var(--base-font-size));
+    /* padding: calc(16rem / var(--base-font-size)); */
+  }
+  .cta-banner__actions {
+    padding-bottom: calc(64rem/var(--base-font-size));
   }
   .alumni-category-block {
     margin: 0 0 calc(40rem/var(--base-font-size));
+  }
+  .category-title {
+    margin: 0 0 calc(24rem / var(--base-font-size));
+  }
+  .category-title {
+    font-size: 24px;
   }
   .top-links-bar,.header-menu-links,.sidebar-title ,.site-footer{
       display: none;
@@ -853,8 +943,6 @@ flex-grow: 0;
   font-size: var(--size-xs);
   line-height:calc(26rem/var(--base-font-size));
 }
-
-
 .alumni-card__play {
   font-size: calc(32rem/var(--base-font-size));
 }
@@ -865,6 +953,11 @@ flex-grow: 0;
     gap: calc(20rem/var(--base-font-size));
     width: 100%;
 }
+
+.alumni-grid{
+  gap: calc(24rem / var(--base-font-size));
+}
+
 .cta-banner__title{
   padding-top: calc(40rem / var(--base-font-size));
 }

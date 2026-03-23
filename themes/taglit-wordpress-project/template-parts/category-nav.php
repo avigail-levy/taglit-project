@@ -7,7 +7,7 @@ $terms = get_terms(array(
 ));
 
 if (!empty($terms) && !is_wp_error($terms)) : ?>
-    <aside class="category-nav">
+    <aside class="category-nav category-sidebar" >
         <ul class="category-nav__list">
             <?php foreach ($terms as $term) :
                 $hide_category = get_field('hide_category', $term);
